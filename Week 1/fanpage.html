@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Justin Bieber Fan Page</title>
+  <style>
+    :root {
+      --brand: #f48fb1;
+      --brand-2: #8e24aa;
+      --bg-dark: #121212;
+      --card-dark: #1e1e1e;
+      --text-light: #f1f1f1;
+      --radius: 14px;
+      --shadow: 0 4px 12px rgba(0, 0, 0, 0.6);
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: var(--bg-dark);
+      color: var(--text-light);
+    }
+
+    header {
+      background: linear-gradient(135deg, var(--brand-2), var(--brand));
+      padding: 2rem;
+      text-align: center;
+      color: #fff;
+    }
+
+    header h1 {
+      font-size: 3rem;
+      margin: 0;
+    }
+
+    section {
+      max-width: 1200px;
+      margin: 2rem auto;
+      padding: 1rem;
+    }
+
+    section h2 {
+      text-align: center;
+      margin-bottom: 1.2rem;
+      color: var(--brand);
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.6s ease-out;
+    }
+
+    .card,
+    .album-card,
+    .fan-card,
+    .discography-item {
+      background: var(--card-dark);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 1rem;
+      margin-bottom: 1rem;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.6s ease-out;
+    }
+
+    .album-card img {
+      width: 100%;
+      border-radius: var(--radius);
+    }
+
+    .album-card:hover,
+    .fan-card:hover,
+    .card:hover,
+    .discography-item:hover {
+      box-shadow: 0 6px 18px rgba(244, 143, 177, 0.4);
+      transform: translateY(-5px);
+    }
+
+    .albums {
+      display: grid;
+      gap: 1.5rem;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    }
+
+    .discography-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+    }
+
+    .discography-list ul {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    .discography-item h3 {
+      cursor: pointer;
+      margin: 0;
+      color: var(--brand);
+    }
+
+    .discography-details {
+      display: none;
+      margin-top: 0.5rem;
+      font-size: 0.9rem;
+    }
+
+    .discography-details img {
+      width: 100px;
+      border-radius: var(--radius);
+      margin: 0.5rem 0;
+    }
+
+    .fan-grid {
+      display: grid;
+      gap: 1.5rem;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    }
+
+    .fan-card blockquote {
+      font-style: italic;
+      color: #ccc;
+    }
+
+    .timeline {
+      border-left: 3px solid var(--brand-2);
+      padding-left: 1rem;
+    }
+
+    .timeline-event {
+      margin-bottom: 1.5rem;
+    }
+
+    .timeline-event h3 {
+      color: var(--brand);
+    }
+
+    /* Slideshow */
+    .slideshow-container {
+      position: relative;
+      max-width: 900px;
+      margin: auto;
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+    }
+
+    .slide {
+      display: none;
+    }
+
+    .slide img {
+      width: 100%;
+      border-radius: var(--radius);
+    }
+
+    .prev,
+    .next {
+      cursor: pointer;
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      padding: 0.5rem;
+      color: #fff;
+      font-weight: bold;
+      font-size: 1.5rem;
+      background: rgba(0, 0, 0, 0.4);
+      border-radius: 50%;
+      user-select: none;
+    }
+
+    .next {
+      right: 10px;
+    }
+
+    .prev {
+      left: 10px;
+    }
+
+    .dots {
+      text-align: center;
+      margin-top: 0.5rem;
+    }
+
+    .dot {
+      cursor: pointer;
+      height: 12px;
+      width: 12px;
+      margin: 0 3px;
+      background: #bbb;
+      border-radius: 50%;
+      display: inline-block;
+    }
+
+    .active,
+    .dot:hover {
+      background: var(--brand-2);
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <h1>Justin Bieber</h1>
+    <p>Celebrating the Journey with the Beliebers 💜</p>
+  </header>
+
+  <!-- Slideshow -->
+  <section id="slideshow">
+    <h2>Highlights</h2>
+    <div class="slideshow-container">
+      <div class="slide fade"><img src="justin4.jpg" alt="Justin in Concert"></div>
+      <div class="slide fade"><img src="justin5.jpg" alt="Fan Meet"></div>
+      <div class="slide fade"><img src="justin6.jpg" alt="Purpose Tour">
+      </div>
+      <span class="prev">&#10094;</span>
+      <span class="next">&#10095;</span>
+    </div>
+    <div class="dots"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
+  </section>
+
+  <!-- Fan Interactions -->
+  <section id="fans">
+    <h2>With the Beliebers</h2>
+    <div class="fan-grid">
+      <div class="fan-card">
+        <h3>Letter from Anna, Brazil</h3>
+        <blockquote>“Justin, your music helped me through the toughest times. Thank you for always reminding us to never
+          give up.”</blockquote>
+      </div>
+      <div class="fan-card">
+        <h3>Comment from Daniel, Canada</h3>
+        <blockquote>“As a Belieber since 2010, I’ve seen your growth as an artist and a person. We’re proud of you.”
+        </blockquote>
+      </div>
+      <div class="fan-card">
+        <h3>Letter from Priya, India</h3>
+        <blockquote>“Your songs are part of my happiest memories. Meeting you at the Purpose Tour was a dream come
+          true.”</blockquote>
+      </div>
+      <div class="fan-card">
+        <h3>Comment from Sara, UK</h3>
+        <blockquote>“You always remind us that family is chosen, and Beliebers are one big family. We love you Justin
+          💜”</blockquote>
+      </div>
+    </div>
+  </section>
+
+  <!-- Latest News -->
+  <section id="news">
+    <h2>Latest News</h2>
+    <div class="card">
+      <h3>New Single Release</h3>
+      <p>Justin just dropped a new track — stay tuned for the album release!</p>
+    </div>
+    <div class="card">
+      <h3>Upcoming Tour</h3>
+      <p>New concert dates have been announced for 2025. Beliebers get ready!</p>
+    </div>
+  </section>
+
+  <!-- Discography -->
+  <section id="discography">
+    <h2>Discography</h2>
+    <div class="discography-grid">
+      <!-- YouTube Highlights -->
+      <div>
+        <h3 style="color:var(--brand)">YouTube Highlights</h3>
+        <div class="albums">
+          <div class="album-card">
+            <img src="https://i.scdn.co/image/ab67616d0000b273a5aaff42ebf0759bbf9e4273" alt="Purpose Album Cover">
+            <h3>Purpose</h3>
+            <p>Released: 2015</p>
+            <div class="yt-player">
+              <iframe width="100%" height="200" src="https://www.youtube.com/embed/kTJczUoc26U" frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen></iframe>
+            </div>
+          </div>
+          <div class="album-card">
+            <img src="https://i.scdn.co/image/ab67616d0000b273bb2ec2f4f2a938b0b8d0a7c1" alt="Justice Album Cover">
+            <h3>Justice</h3>
+            <p>Released: 2021</p>
+            <div class="yt-player">
+              <iframe width="100%" height="200" src="https://www.youtube.com/embed/tQ0yjYUFKAE" frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen></iframe>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Interactive Discography List -->
+      <div class="discography-list">
+        <h3 style="color:var(--brand)">All Albums</h3>
+        <div class="discography-item">
+          <h3>My World (2009)</h3>
+          <div class="discography-details">
+            <img src="https://upload.wikimedia.org/wikipedia/en/8/82/Justin_Bieber_-_My_World.png" alt="My World Cover">
+            <ul>
+              <li>One Time</li>
+              <li>Favorite Girl</li>
+              <li>Down to Earth</li>
+            </ul>
+          </div>
+        </div>
+        <div class="discography-item">
+          <h3>My World 2.0 (2010)</h3>
+          <div class="discography-details">
+            <img src="https://upload.wikimedia.org/wikipedia/en/8/86/Myworld2.jpg" alt="My World 2.0 Cover">
+            <ul>
+              <li>Baby</li>
+              <li>Somebody to Love</li>
+              <li>U Smile</li>
+            </ul>
+          </div>
+        </div>
+        <div class="discography-item">
+          <h3>Purpose (2015)</h3>
+          <div class="discography-details">
+            <img
+              src="https://upload.wikimedia.org/wikipedia/en/d/d3/Justin_Bieber_-_Purpose_\(Official_Album_Cover\).png"
+              alt="Purpose Cover">
+            <ul>
+              <li>Sorry</li>
+              <li>Love Yourself</li>
+              <li>What Do You Mean?</li>
+            </ul>
+          </div>
+        </div>
+        <div class="discography-item">
+          <h3>Justice (2021)</h3>
+          <div class="discography-details">
+            <img src="https://upload.wikimedia.org/wikipedia/en/b/bd/Justin_Bieber_-_Justice.png" alt="Justice Cover">
+            <ul>
+              <li>Peaches</li>
+              <li>Hold On</li>
+              <li>Ghost</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Awards -->
+  <section id="awards">
+    <h2>Awards & Achievements</h2>
+    <div class="card">
+      <ul>
+        <li>GRAMMY Award – Best Dance Recording (2016)</li>
+        <li>Billboard Music Awards – Multiple wins</li>
+        <li>American Music Awards – Artist of the Year</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Timeline -->
+  <section id="timeline">
+    <h2>Career Timeline</h2>
+    <div class="timeline">
+      <div class="timeline-event">
+        <h3>2009 – Debut Album</h3><span>My World was released, introducing Justin to the world.</span>
+      </div>
+      <div class="timeline-event">
+        <h3>2015 – Purpose</h3><span>Global success with hits like “Sorry” and “Love Yourself”.</span>
+      </div>
+      <div class="timeline-event">
+        <h3>2021 – Justice</h3><span>Chart-topping album featuring “Peaches”.</span>
+      </div>
+    </div>
+  </section>
+
+
+  <script>
+    // Fade-in on scroll
+    const revealEls = document.querySelectorAll('section h2, .card, .album-card, .fan-card, .discography-item');
+    function revealOnScroll() {
+      const triggerBottom = window.innerHeight * 0.85;
+      revealEls.forEach(el => {
+        const rect = el.getBoundingClientRect();
+        if (rect.top < triggerBottom) { el.style.opacity = 1; el.style.transform = "translateY(0)"; }
+      });
+    }
+    window.addEventListener('scroll', revealOnScroll);
+    revealOnScroll();
+
+    // Slideshow
+    let slideIndex = 0;
+    const slides = document.getElementsByClassName("slide");
+    const dots = document.getElementsByClassName("dot");
+    function showSlide(n) {
+      if (n >= slides.length) slideIndex = 0;
+      if (n < 0) slideIndex = slides.length - 1;
+      for (let i = 0; i < slides.length; i++) { slides[i].style.display = "none"; dots[i].classList.remove("active"); }
+      slides[slideIndex].style.display = "block"; dots[slideIndex].classList.add("active");
+    }
+    function nextSlide(n) { showSlide(slideIndex += n); }
+    document.querySelector(".prev").onclick = () => { nextSlide(-1) };
+    document.querySelector(".next").onclick = () => { nextSlide(1) };
+    for (let i = 0; i < dots.length; i++) { dots[i].onclick = () => { showSlide(slideIndex = i) } }
+    function autoSlide() { slideIndex++; showSlide(slideIndex); setTimeout(autoSlide, 5000); }
+    showSlide(slideIndex); autoSlide();
+
+    // Interactive Discography
+    const discographyItems = document.querySelectorAll('.discography-item h3');
+    discographyItems.forEach(item => {
+      item.addEventListener('click', () => {
+        const details = item.nextElementSibling;
+        details.style.display = details.style.display === "block" ? "none" : "block";
+      });
+    });
+  </script>
+</body>
+
+</html>
