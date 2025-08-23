@@ -17,21 +17,22 @@
     }
 
     body {
-      font-family: 'Poppins', sans-serif;
+      font-family: Poppins, sans-serif;
       background: var(--bg-dark);
       color: var(--text-light);
+      margin: 0;
     }
 
     header {
       background: linear-gradient(135deg, var(--brand-2), var(--brand));
       padding: 2rem;
       text-align: center;
-      color: #fff;
+      box-shadow: var(--shadow);
     }
 
     header h1 {
-      font-size: 3rem;
       margin: 0;
+      font-size: 3rem;
     }
 
     section {
@@ -42,17 +43,35 @@
 
     section h2 {
       text-align: center;
-      margin-bottom: 1.2rem;
+      font-size: 2rem;
       color: var(--brand);
       opacity: 0;
       transform: translateY(20px);
       transition: all 0.6s ease-out;
     }
 
+    /* Discography + YouTube Grid */
+    .discography-grid { display:grid; grid-template-columns:2fr 1fr; gap:2rem; align-items:start;}
+    .card { display:flex; gap:1rem; }
+    .card img { width:100px; height:100px; border-radius:var(--radius); }
+    .album-info { flex:1;}
+    .album-info h3 { margin:0; color:var(--brand);}
+    .album-info ul { padding-left:1rem; margin:0.3rem 0; font-size:0.9rem;}
+    .listen-links a {
+      display:inline-block; text-decoration:none; color:white;
+      background:var(--brand-2); padding:0.3rem 0.7rem; margin:0.2rem;
+      border-radius:var(--radius); font-size:0.8rem; transition:background 0.3s;}
+    .listen-links a:hover { background:var(--brand); }
+
+    /* YouTube embeds */
+    .video-list h3 { color:var(--brand);}
+    .video-list iframe { width:100%; height:200px; margin-bottom:1rem;
+      border-radius:var(--radius); box-shadow:var(--shadow); }
+
     .card,
-    .album-card,
+    .discography-item,
     .fan-card,
-    .discography-item {
+    .social-post {
       background: var(--card-dark);
       border-radius: var(--radius);
       box-shadow: var(--shadow);
@@ -63,34 +82,12 @@
       transition: all 0.6s ease-out;
     }
 
-    .album-card img {
-      width: 100%;
-      border-radius: var(--radius);
-    }
-
-    .album-card:hover,
-    .fan-card:hover,
     .card:hover,
-    .discography-item:hover {
+    .discography-item:hover,
+    .fan-card:hover,
+    .social-post:hover {
       box-shadow: 0 6px 18px rgba(244, 143, 177, 0.4);
       transform: translateY(-5px);
-    }
-
-    .albums {
-      display: grid;
-      gap: 1.5rem;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    }
-
-    .discography-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 2rem;
-    }
-
-    .discography-list ul {
-      list-style: none;
-      padding-left: 0;
     }
 
     .discography-item h3 {
@@ -105,23 +102,133 @@
       font-size: 0.9rem;
     }
 
+    .album-flex {
+      display: flex;
+      align-items: flex-start;
+      gap: 1.2rem;
+    }
+
+    .album-info {
+      flex: 1;
+    }
+
     .discography-details img {
-      width: 100px;
+      width: 120px;
       border-radius: var(--radius);
+    }
+
+    .listen-links a {
+      display: inline-block;
+      text-decoration: none;
+      color: white;
+      background: var(--brand-2);
+      padding: 0.4rem 0.8rem;
+      margin: 0.3rem 0;
+      border-radius: var(--radius);
+      font-size: 0.85rem;
+      transition: background 0.3s;
+    }
+
+    .listen-links a:hover {
+      background: var(--brand);
+    }
+
+    /* Slideshow */
+    .slideshow-container {
+      position: relative;
+      max-width: 900px;
+      margin: auto;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      border-radius: var(--radius);
+    }
+
+    .slide {
+      display: none;
+    }
+
+    .slide img {
+      width: 100%;
+      display: block;
+    }
+
+    .prev,
+    .next {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      color: white;
+      font-size: 1.5rem;
+      background: rgba(0, 0, 0, 0.4);
+      border: none;
+      padding: 0.5rem;
+      cursor: pointer;
+      border-radius: 50%;
+    }
+
+    .prev {
+      left: 10px;
+    }
+
+    .next {
+      right: 10px;
+    }
+
+    .dots {
+      text-align: center;
       margin: 0.5rem 0;
     }
 
-    .fan-grid {
+    .dot {
+      display: inline-block;
+      height: 12px;
+      width: 12px;
+      margin: 0 3px;
+      background: #bbb;
+      border-radius: 50%;
+      cursor: pointer;
+    }
+
+    .active,
+    .dot:hover {
+      background: var(--brand-2);
+    }
+
+    /* Social Media Posts */
+    .social-posts {
       display: grid;
       gap: 1.5rem;
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     }
 
-    .fan-card blockquote {
-      font-style: italic;
-      color: #ccc;
+    .social-post img {
+      width: 100%;
+      border-radius: var(--radius);
     }
 
+    /* YouTube Highlights */
+    .album-videos {
+      margin-bottom: 2rem;
+    }
+
+    .album-videos h3 {
+      color: var(--brand);
+    }
+
+    .video-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1rem;
+    }
+
+    .video-grid iframe {
+      width: 100%;
+      height: 200px;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+
+    /* Timeline */
     .timeline {
       border-left: 3px solid var(--brand-2);
       padding-left: 1rem;
@@ -135,67 +242,32 @@
       color: var(--brand);
     }
 
-    /* Slideshow */
-    .slideshow-container {
-      position: relative;
-      max-width: 900px;
-      margin: auto;
-      border-radius: var(--radius);
-      overflow: hidden;
-      box-shadow: var(--shadow);
+    /* Fan Section */
+    .fan-grid {
+      display: grid;
+      gap: 1.5rem;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     }
 
-    .slide {
-      display: none;
+    .fan-card blockquote {
+      font-style: italic;
+      color: #ccc;
     }
 
-    .slide img {
-      width: 100%;
-      border-radius: var(--radius);
+    /* Social links footer */
+    footer {
+      text-align:center;
+      padding:2rem 1rem;
+      font-size:0.9rem;
+      color:#888;
+      border-top:1px solid #333;
     }
-
-    .prev,
-    .next {
-      cursor: pointer;
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      padding: 0.5rem;
-      color: #fff;
-      font-weight: bold;
-      font-size: 1.5rem;
-      background: rgba(0, 0, 0, 0.4);
-      border-radius: 50%;
-      user-select: none;
+    .social-links a {
+      color:var(--brand);
+      margin: 0 0.5rem;
+      text-decoration:none;
     }
-
-    .next {
-      right: 10px;
-    }
-
-    .prev {
-      left: 10px;
-    }
-
-    .dots {
-      text-align: center;
-      margin-top: 0.5rem;
-    }
-
-    .dot {
-      cursor: pointer;
-      height: 12px;
-      width: 12px;
-      margin: 0 3px;
-      background: #bbb;
-      border-radius: 50%;
-      display: inline-block;
-    }
-
-    .active,
-    .dot:hover {
-      background: var(--brand-2);
-    }
+    .social-links a:hover { text-decoration:underline; }
   </style>
 </head>
 
@@ -209,17 +281,16 @@
   <section id="slideshow">
     <h2>Highlights</h2>
     <div class="slideshow-container">
-      <div class="slide fade"><img src="justin4.jpg" alt="Justin in Concert"></div>
-      <div class="slide fade"><img src="justin5.jpg" alt="Fan Meet"></div>
-      <div class="slide fade"><img src="justin6.jpg" alt="Purpose Tour">
-      </div>
-      <span class="prev">&#10094;</span>
-      <span class="next">&#10095;</span>
+      <div class="slide"><img src="justin6.jpg"></div>
+      <div class="slide"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Justin_Bieber_and_Scooter_Braun_in_Rosemont%2C_Illinois_%282015%29.jpg/1920px-Justin_Bieber_and_Scooter_Braun_in_Rosemont%2C_Illinois_%282015%29.jpg" alt="Live in Concert"></div>
+      <div class="slide"><img src="https://img-cdn.publive.online/fit-in/1280x960/filters:format(webp)/indigomusic/media/post_attachments/wp-content/uploads/2020/02/jbt1-1.jpg" alt="Fan Meet"></div>
+      <button class="prev">&#10094;</button>
+      <button class="next">&#10095;</button>
     </div>
     <div class="dots"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
   </section>
 
-  <!-- Fan Interactions -->
+  <!-- Fans -->
   <section id="fans">
     <h2>With the Beliebers</h2>
     <div class="fan-grid">
@@ -250,94 +321,107 @@
   <section id="news">
     <h2>Latest News</h2>
     <div class="card">
-      <h3>New Single Release</h3>
-      <p>Justin just dropped a new track — stay tuned for the album release!</p>
+      <h3>Justin shares affectionate photo with Hailey</h3>
+      <p>Justin posted a heartfelt photo with Hailey, which he captioned humorously — “Sorry to the gurl I cropped out…”
+        (<a
+          href="https://people.com/justin-bieber-crops-girl-out-of-pic-with-hailey-bieber-11795782?utm_source=chatgpt.com"
+          target="_blank">source</a>)</p>
     </div>
     <div class="card">
-      <h3>Upcoming Tour</h3>
-      <p>New concert dates have been announced for 2025. Beliebers get ready!</p>
+      <h3>Father–Son bonding moments</h3>
+      <p>Justin shared a sweet photo carrying his son Jack on his shoulders — fans loved the moment (<a
+          href="https://people.com/justin-bieber-son-jack-blues-sits-on-his-shoulders-new-photos-11793325?utm_source=chatgpt.com"
+          target="_blank">source</a>)</p>
     </div>
   </section>
 
-  <!-- Discography -->
-  <section id="discography">
-    <h2>Discography</h2>
+  <!-- Social Media -->
+  <section id="social">
+    <h2>From Justin's Instagram</h2>
+    <div class="social-posts">
+      <div class="social-post">
+        <img src="https://via.placeholder.com/400x400.png?text=Instagram+Post" alt="Instagram post">
+        <p><em>"Sorry to the gurl I cropped out of this pic. I just love this pic of hails and I lol."</em> — August
+          2025</p>
+      </div>
+      <div class="social-post">
+        <img src="https://via.placeholder.com/400x400.png?text=Instagram+Story" alt="Instagram story">
+        <p>Father–son moment: Jack on Justin’s shoulders, capturing heartfelt family life.</p>
+      </div>
+    </div>
+  </section>
+
+   <!-- Discography + YouTube side by side -->
+  <section id="music">
+    <h2>Discography & YouTube Highlights</h2>
     <div class="discography-grid">
-      <!-- YouTube Highlights -->
-      <div>
-        <h3 style="color:var(--brand)">YouTube Highlights</h3>
-        <div class="albums">
-          <div class="album-card">
-            <img src="https://i.scdn.co/image/ab67616d0000b273a5aaff42ebf0759bbf9e4273" alt="Purpose Album Cover">
-            <h3>Purpose</h3>
-            <p>Released: 2015</p>
-            <div class="yt-player">
-              <iframe width="100%" height="200" src="https://www.youtube.com/embed/kTJczUoc26U" frameborder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowfullscreen></iframe>
+      
+      <!-- Left: Discography -->
+      <div >
+        
+        <div class="card">
+          <img src="https://upload.wikimedia.org/wikipedia/en/b/b9/Myworld2.jpg" alt="My World 2.0">
+          <div class="album-info">
+            <h3>My World 2.0 (2010)</h3>
+            <ul><li>Baby</li><li>Somebody to Love</li><li>U Smile</li></ul>
+            <div class="listen-links">
+              <a href="https://open.spotify.com/album/3BmcYMh0KYsimWL6p2gPa9?si=rnEim60jQEmFyJUbm31SJQ" target="_blank">Spotify</a>
             </div>
           </div>
-          <div class="album-card">
-            <img src="https://i.scdn.co/image/ab67616d0000b273bb2ec2f4f2a938b0b8d0a7c1" alt="Justice Album Cover">
-            <h3>Justice</h3>
-            <p>Released: 2021</p>
-            <div class="yt-player">
-              <iframe width="100%" height="200" src="https://www.youtube.com/embed/tQ0yjYUFKAE" frameborder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowfullscreen></iframe>
+        </div>
+
+        <div class="card">
+          <img src="https://upload.wikimedia.org/wikipedia/en/0/01/Believe-JB-Album.jpg" alt="Believe">
+          <div class="album-info">
+            <h3>Believe (2012)</h3>
+            <ul><li>Boyfriend</li><li>As Long As You Love Me</li><li>Beauty and a Beat</li></ul>
+            <div class="listen-links">
+              <a href="https://open.spotify.com/album/5cxMa6oLINJzmZ8lF7wWQN?si=FZIA-LFsQT-5pFjQRJJ97g" target="_blank">Spotify</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <img src="https://upload.wikimedia.org/wikipedia/en/c/c5/Justin_Bieber_Purpose_Saudi_Arabian_cover.jpg" alt="Purpose">
+          <div class="album-info">
+            <h3>Purpose (2015)</h3>
+            <ul><li>Sorry</li><li>Love Yourself</li><li>What Do You Mean?</li></ul>
+            <div class="listen-links">
+              <a href="https://open.spotify.com/album/3jJ5HhbOC2KB5fOZ2RgJTo?si=G2EDeiH3QXeU5ivUPrUD5Q" target="_blank">Spotify</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <img src="https://upload.wikimedia.org/wikipedia/en/1/16/Justin_Bieber_-_Changes.png" alt="Changes">
+          <div class="album-info">
+            <h3>Changes (2020)</h3>
+            <ul><li>Yummy</li><li>Intentions</li><li>Forever</li></ul>
+            <div class="listen-links">
+              <a href="https://open.spotify.com/album/63iWSELt9V1kV6RSMxN7Ii?si=uUlDhn0MTLOUNE8iBvzPIg" target="_blank">Spotify</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <img src="https://upload.wikimedia.org/wikipedia/en/0/08/Justin_Bieber_-_Justice.png" alt="Justice">
+          <div class="album-info">
+            <h3>Justice (2021)</h3>
+            <ul><li>Peaches</li><li>Hold On</li><li>Ghost</li></ul>
+            <div class="listen-links">
+              <a href="https://open.spotify.com/album/5dGWwsZ9iB2Xc3UKR0gif2?si=zzS54qbnR1SVcicow68tWg" target="_blank">Spotify</a>
             </div>
           </div>
         </div>
       </div>
-      <!-- Interactive Discography List -->
-      <div class="discography-list">
-        <h3 style="color:var(--brand)">All Albums</h3>
-        <div class="discography-item">
-          <h3>My World (2009)</h3>
-          <div class="discography-details">
-            <img src="https://upload.wikimedia.org/wikipedia/en/8/82/Justin_Bieber_-_My_World.png" alt="My World Cover">
-            <ul>
-              <li>One Time</li>
-              <li>Favorite Girl</li>
-              <li>Down to Earth</li>
-            </ul>
-          </div>
-        </div>
-        <div class="discography-item">
-          <h3>My World 2.0 (2010)</h3>
-          <div class="discography-details">
-            <img src="https://upload.wikimedia.org/wikipedia/en/8/86/Myworld2.jpg" alt="My World 2.0 Cover">
-            <ul>
-              <li>Baby</li>
-              <li>Somebody to Love</li>
-              <li>U Smile</li>
-            </ul>
-          </div>
-        </div>
-        <div class="discography-item">
-          <h3>Purpose (2015)</h3>
-          <div class="discography-details">
-            <img
-              src="https://upload.wikimedia.org/wikipedia/en/d/d3/Justin_Bieber_-_Purpose_\(Official_Album_Cover\).png"
-              alt="Purpose Cover">
-            <ul>
-              <li>Sorry</li>
-              <li>Love Yourself</li>
-              <li>What Do You Mean?</li>
-            </ul>
-          </div>
-        </div>
-        <div class="discography-item">
-          <h3>Justice (2021)</h3>
-          <div class="discography-details">
-            <img src="https://upload.wikimedia.org/wikipedia/en/b/bd/Justin_Bieber_-_Justice.png" alt="Justice Cover">
-            <ul>
-              <li>Peaches</li>
-              <li>Hold On</li>
-              <li>Ghost</li>
-            </ul>
-          </div>
-        </div>
+
+      <!-- Right: YouTube Highlights -->
+      <div class="video-list">
+        <iframe src="https://www.youtube.com/embed/oyEuk8j8imI" title="Love Yourself"></iframe>
+        <iframe src="https://www.youtube.com/embed/kffacxfA7G4" title="Baby"></iframe>
+        <iframe src="https://www.youtube.com/embed/4GuqB1BQVr4" title="Boyfriend"></iframe>
+        <iframe src="https://www.youtube.com/embed/fRh_vgS2dFE" title="Sorry"></iframe>
+        <iframe src="https://www.youtube.com/embed/kTJczUoc26U" title="Peaches"></iframe>
       </div>
     </div>
   </section>
@@ -370,44 +454,60 @@
     </div>
   </section>
 
+  <!-- Social & Footer -->
+  <footer>
+    <p class="social-links">
+      Follow Justin on:
+      <a href="https://www.instagram.com/justinbieber/" target="_blank">Instagram</a> |
+      <a href="https://x.com/justinbieber" target="_blank">X (Twitter)</a> |
+      <a href="https://open.spotify.com/artist/1uNFoZAHBGtllmzznpCI3s" target="_blank">Spotify</a>
+    </p>
+    <p>&copy; 2025 Justin Bieber Fan Page — Not affiliated.</p>
+  </footer>
+
+
+
 
   <script>
     // Fade-in on scroll
-    const revealEls = document.querySelectorAll('section h2, .card, .album-card, .fan-card, .discography-item');
-    function revealOnScroll() {
-      const triggerBottom = window.innerHeight * 0.85;
+    const revealEls = document.querySelectorAll('section h2, .card, .discography-item, .social-post, .fan-card');
+    const revealOnScroll = () => {
+      const trigger = window.innerHeight * 0.85;
       revealEls.forEach(el => {
-        const rect = el.getBoundingClientRect();
-        if (rect.top < triggerBottom) { el.style.opacity = 1; el.style.transform = "translateY(0)"; }
+        if (el.getBoundingClientRect().top < trigger) {
+          el.style.opacity = '1';
+          el.style.transform = 'translateY(0)';
+        }
       });
-    }
-    window.addEventListener('scroll', revealOnScroll);
-    revealOnScroll();
+    };
+    window.addEventListener('scroll', revealOnScroll); revealOnScroll();
 
     // Slideshow
     let slideIndex = 0;
-    const slides = document.getElementsByClassName("slide");
-    const dots = document.getElementsByClassName("dot");
-    function showSlide(n) {
+    const slides = document.getElementsByClassName('slide');
+    const dots = document.getElementsByClassName('dot');
+    const showSlide = n => {
       if (n >= slides.length) slideIndex = 0;
       if (n < 0) slideIndex = slides.length - 1;
-      for (let i = 0; i < slides.length; i++) { slides[i].style.display = "none"; dots[i].classList.remove("active"); }
-      slides[slideIndex].style.display = "block"; dots[slideIndex].classList.add("active");
-    }
-    function nextSlide(n) { showSlide(slideIndex += n); }
-    document.querySelector(".prev").onclick = () => { nextSlide(-1) };
-    document.querySelector(".next").onclick = () => { nextSlide(1) };
-    for (let i = 0; i < dots.length; i++) { dots[i].onclick = () => { showSlide(slideIndex = i) } }
-    function autoSlide() { slideIndex++; showSlide(slideIndex); setTimeout(autoSlide, 5000); }
+      for (let i = 0; i < slides.length; i++) {
+        slides[i].style.display = 'none';
+        dots[i].classList.remove('active');
+      }
+      slides[slideIndex].style.display = 'block';
+      dots[slideIndex].classList.add('active');
+    };
+    document.querySelector('.prev').onclick = () => showSlide(--slideIndex);
+    document.querySelector('.next').onclick = () => showSlide(++slideIndex);
+    Array.from(dots).forEach((d, i) => d.onclick = () => showSlide(slideIndex = i));
+    function autoSlide() { showSlide(++slideIndex); setTimeout(autoSlide, 5000); }
     showSlide(slideIndex); autoSlide();
 
-    // Interactive Discography
-    const discographyItems = document.querySelectorAll('.discography-item h3');
-    discographyItems.forEach(item => {
-      item.addEventListener('click', () => {
-        const details = item.nextElementSibling;
-        details.style.display = details.style.display === "block" ? "none" : "block";
-      });
+    // Discography toggle
+    document.querySelectorAll('.discography-item h3').forEach(h => {
+      h.onclick = () => {
+        const det = h.nextElementSibling;
+        det.style.display = det.style.display === 'block' ? 'none' : 'block';
+      };
     });
   </script>
 </body>
