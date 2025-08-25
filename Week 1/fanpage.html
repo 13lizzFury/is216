@@ -50,23 +50,89 @@
       transition: all 0.6s ease-out;
     }
 
+    /* Style for "source" links */
+    a:link {
+      color: #f48fb1;
+      /* bright pink before click */
+    }
+
+    a:visited {
+      color: #ad1457;
+      /* darker pink after click */
+    }
+
+    a:hover {
+      color: #ff80ab;
+      /* optional: lighter pink when hovering */
+    }
+
+    a:active {
+      color: #ec407a;
+      /* optional: when actively clicking */
+    }
+
     /* Discography + YouTube Grid */
-    .discography-grid { display:grid; grid-template-columns:2fr 1fr; gap:2rem; align-items:start;}
-    .card { display:flex; gap:1rem; }
-    .card img { width:100px; height:100px; border-radius:var(--radius); }
-    .album-info { flex:1;}
-    .album-info h3 { margin:0; color:var(--brand);}
-    .album-info ul { padding-left:1rem; margin:0.3rem 0; font-size:0.9rem;}
+    .discography-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 2rem;
+      align-items: start;
+    }
+
+    .card {
+      display: flex;
+      gap: 1rem;
+    }
+
+    .card img {
+      width: 100px;
+      height: 100px;
+      border-radius: var(--radius);
+    }
+
+    .album-info {
+      flex: 1;
+    }
+
+    .album-info h3 {
+      margin: 0;
+      color: var(--brand);
+    }
+
+    .album-info ul {
+      padding-left: 1rem;
+      margin: 0.3rem 0;
+      font-size: 0.9rem;
+    }
+
     .listen-links a {
-      display:inline-block; text-decoration:none; color:white;
-      background:var(--brand-2); padding:0.3rem 0.7rem; margin:0.2rem;
-      border-radius:var(--radius); font-size:0.8rem; transition:background 0.3s;}
-    .listen-links a:hover { background:var(--brand); }
+      display: inline-block;
+      text-decoration: none;
+      color: white;
+      background: var(--brand-2);
+      padding: 0.3rem 0.7rem;
+      margin: 0.2rem;
+      border-radius: var(--radius);
+      font-size: 0.8rem;
+      transition: background 0.3s;
+    }
+
+    .listen-links a:hover {
+      background: var(--brand);
+    }
 
     /* YouTube embeds */
-    .video-list h3 { color:var(--brand);}
-    .video-list iframe { width:100%; height:200px; margin-bottom:1rem;
-      border-radius:var(--radius); box-shadow:var(--shadow); }
+    .video-list h3 {
+      color: var(--brand);
+    }
+
+    .video-list iframe {
+      width: 100%;
+      height: 200px;
+      margin-bottom: 1rem;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
 
     .card,
     .discography-item,
@@ -256,18 +322,22 @@
 
     /* Social links footer */
     footer {
-      text-align:center;
-      padding:2rem 1rem;
-      font-size:0.9rem;
-      color:#888;
-      border-top:1px solid #333;
+      text-align: center;
+      padding: 2rem 1rem;
+      font-size: 0.9rem;
+      color: #888;
+      border-top: 1px solid #333;
     }
+
     .social-links a {
-      color:var(--brand);
+      color: var(--brand);
       margin: 0 0.5rem;
-      text-decoration:none;
+      text-decoration: none;
     }
-    .social-links a:hover { text-decoration:underline; }
+
+    .social-links a:hover {
+      text-decoration: underline;
+    }
   </style>
 </head>
 
@@ -282,8 +352,12 @@
     <h2>Highlights</h2>
     <div class="slideshow-container">
       <div class="slide"><img src="justin6.jpg"></div>
-      <div class="slide"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Justin_Bieber_and_Scooter_Braun_in_Rosemont%2C_Illinois_%282015%29.jpg/1920px-Justin_Bieber_and_Scooter_Braun_in_Rosemont%2C_Illinois_%282015%29.jpg" alt="Live in Concert"></div>
-      <div class="slide"><img src="https://img-cdn.publive.online/fit-in/1280x960/filters:format(webp)/indigomusic/media/post_attachments/wp-content/uploads/2020/02/jbt1-1.jpg" alt="Fan Meet"></div>
+      <div class="slide"><img
+          src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Justin_Bieber_and_Scooter_Braun_in_Rosemont%2C_Illinois_%282015%29.jpg/1920px-Justin_Bieber_and_Scooter_Braun_in_Rosemont%2C_Illinois_%282015%29.jpg"
+          alt="Live in Concert"></div>
+      <div class="slide"><img
+          src="https://img-cdn.publive.online/fit-in/1280x960/filters:format(webp)/indigomusic/media/post_attachments/wp-content/uploads/2020/02/jbt1-1.jpg"
+          alt="Fan Meet"></div>
       <button class="prev">&#10094;</button>
       <button class="next">&#10095;</button>
     </div>
@@ -351,21 +425,26 @@
     </div>
   </section>
 
-   <!-- Discography + YouTube side by side -->
+  <!-- Discography + YouTube side by side -->
   <section id="music">
     <h2>Discography & YouTube Highlights</h2>
     <div class="discography-grid">
-      
+
       <!-- Left: Discography -->
-      <div >
-        
+      <div>
+
         <div class="card">
           <img src="https://upload.wikimedia.org/wikipedia/en/b/b9/Myworld2.jpg" alt="My World 2.0">
           <div class="album-info">
             <h3>My World 2.0 (2010)</h3>
-            <ul><li>Baby</li><li>Somebody to Love</li><li>U Smile</li></ul>
+            <ul>
+              <li>Baby</li>
+              <li>Somebody to Love</li>
+              <li>U Smile</li>
+            </ul>
             <div class="listen-links">
-              <a href="https://open.spotify.com/album/3BmcYMh0KYsimWL6p2gPa9?si=rnEim60jQEmFyJUbm31SJQ" target="_blank">Spotify</a>
+              <a href="https://open.spotify.com/album/3BmcYMh0KYsimWL6p2gPa9?si=rnEim60jQEmFyJUbm31SJQ"
+                target="_blank">Spotify</a>
             </div>
           </div>
         </div>
@@ -374,20 +453,31 @@
           <img src="https://upload.wikimedia.org/wikipedia/en/0/01/Believe-JB-Album.jpg" alt="Believe">
           <div class="album-info">
             <h3>Believe (2012)</h3>
-            <ul><li>Boyfriend</li><li>As Long As You Love Me</li><li>Beauty and a Beat</li></ul>
+            <ul>
+              <li>Boyfriend</li>
+              <li>As Long As You Love Me</li>
+              <li>Beauty and a Beat</li>
+            </ul>
             <div class="listen-links">
-              <a href="https://open.spotify.com/album/5cxMa6oLINJzmZ8lF7wWQN?si=FZIA-LFsQT-5pFjQRJJ97g" target="_blank">Spotify</a>
+              <a href="https://open.spotify.com/album/5cxMa6oLINJzmZ8lF7wWQN?si=FZIA-LFsQT-5pFjQRJJ97g"
+                target="_blank">Spotify</a>
             </div>
           </div>
         </div>
 
         <div class="card">
-          <img src="https://upload.wikimedia.org/wikipedia/en/c/c5/Justin_Bieber_Purpose_Saudi_Arabian_cover.jpg" alt="Purpose">
+          <img src="https://upload.wikimedia.org/wikipedia/en/c/c5/Justin_Bieber_Purpose_Saudi_Arabian_cover.jpg"
+            alt="Purpose">
           <div class="album-info">
             <h3>Purpose (2015)</h3>
-            <ul><li>Sorry</li><li>Love Yourself</li><li>What Do You Mean?</li></ul>
+            <ul>
+              <li>Sorry</li>
+              <li>Love Yourself</li>
+              <li>What Do You Mean?</li>
+            </ul>
             <div class="listen-links">
-              <a href="https://open.spotify.com/album/3jJ5HhbOC2KB5fOZ2RgJTo?si=G2EDeiH3QXeU5ivUPrUD5Q" target="_blank">Spotify</a>
+              <a href="https://open.spotify.com/album/3jJ5HhbOC2KB5fOZ2RgJTo?si=G2EDeiH3QXeU5ivUPrUD5Q"
+                target="_blank">Spotify</a>
             </div>
           </div>
         </div>
@@ -396,9 +486,14 @@
           <img src="https://upload.wikimedia.org/wikipedia/en/1/16/Justin_Bieber_-_Changes.png" alt="Changes">
           <div class="album-info">
             <h3>Changes (2020)</h3>
-            <ul><li>Yummy</li><li>Intentions</li><li>Forever</li></ul>
+            <ul>
+              <li>Yummy</li>
+              <li>Intentions</li>
+              <li>Forever</li>
+            </ul>
             <div class="listen-links">
-              <a href="https://open.spotify.com/album/63iWSELt9V1kV6RSMxN7Ii?si=uUlDhn0MTLOUNE8iBvzPIg" target="_blank">Spotify</a>
+              <a href="https://open.spotify.com/album/63iWSELt9V1kV6RSMxN7Ii?si=uUlDhn0MTLOUNE8iBvzPIg"
+                target="_blank">Spotify</a>
             </div>
           </div>
         </div>
@@ -407,9 +502,14 @@
           <img src="https://upload.wikimedia.org/wikipedia/en/0/08/Justin_Bieber_-_Justice.png" alt="Justice">
           <div class="album-info">
             <h3>Justice (2021)</h3>
-            <ul><li>Peaches</li><li>Hold On</li><li>Ghost</li></ul>
+            <ul>
+              <li>Peaches</li>
+              <li>Hold On</li>
+              <li>Ghost</li>
+            </ul>
             <div class="listen-links">
-              <a href="https://open.spotify.com/album/5dGWwsZ9iB2Xc3UKR0gif2?si=zzS54qbnR1SVcicow68tWg" target="_blank">Spotify</a>
+              <a href="https://open.spotify.com/album/5dGWwsZ9iB2Xc3UKR0gif2?si=zzS54qbnR1SVcicow68tWg"
+                target="_blank">Spotify</a>
             </div>
           </div>
         </div>
