@@ -1,0 +1,31 @@
+.block-demo {
+    background-color: aqua;
+
+    /* margin-top: 6px;
+    margin-bottom: 6px;
+    margin-left: 0px;
+    margin-right: 0px; */
+
+    /* Clockwise Direction: Top, Right, Bottom, Left */
+    margin: 6px 15px 10px 20px;
+}
+
+.inline-demo {
+    display: inline;
+    background-color: pink;
+    margin: 6px;
+    padding: 4px;
+    width: 120px;
+    height: 100px;
+}
+
+.inline-block {
+    display: inline-block;
+    background-color: yellow;
+    margin: 6px;
+    padding: 4px;
+    width: 120px;
+    height: 100px;
+    /* Vertically centers text when set to the same height */
+    line-height: 100px;
+}

@@ -1,0 +1,18 @@
+/* Parent */
+#one {
+    background-color: yellow;
+    width: 600px;
+    height: 500px;
+}
+
+/* Child */
+.two {
+    background-color: aqua;
+    width: 300px;
+    /* Height is 50% of its parents height */
+    height: 50%;
+}
+
+img {
+    width: 70%;
+}

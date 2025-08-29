@@ -1,0 +1,67 @@
+/* styles.css - Challenge #1 (Skeleton) */
+body {
+    background-color: aliceblue;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+h1.site-header {
+    color: maroon;
+    text-align: center;
+}
+
+.site-header h1 {
+    color: maroon;
+    text-align: center;
+}
+
+.tagline {
+    font-size: medium;
+    color: black;
+    text-align: center;
+    font-style: italic;
+}
+
+#mascot-image {
+    background-color: white;
+    width: 45%;
+    display: block;
+    margin: auto;
+    border-style: solid;
+    border-width: 2px;
+    border-radius: 8%;
+    padding-left: 5%;
+    padding-right: 5%;
+}
+
+.about {
+    padding-left: 5%;
+    padding-right: 5%;
+}
+
+.actions {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.actions button {
+    padding: 10px 20px;
+    border-width: 0px;
+    border-radius: 12px;
+}
+
+.buy-tickets {
+    background-color: green;
+    color: white;
+    box-shadow: 0 0 10px greenyellow;
+}
+
+.make-donation {
+    background-color: blue;
+    color: white;
+    box-shadow: 0 0 10px purple;
+}
+
+.site-footer {
+    text-align: center;
+}

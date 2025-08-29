@@ -1,0 +1,16 @@
+#one {
+    background-color: yellow;
+    width: 500px;
+    height: 500px;
+    margin: auto;
+
+    display: flex;
+    flex-direction: column; /* Children stack on each other */
+    justify-content: center; /* Vertically center children */
+    align-items: center; /* Horizontally center children */
+    text-align: center; /* Center align text */
+}
+
+img {
+    width: 70%;
+}
