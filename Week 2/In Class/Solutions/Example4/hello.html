@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Example 4 - display: block, inline, inline-block, none</title>
+
+    <!-- Reference a local CSS file -->
+    <link rel="stylesheet" href="hello.css">
+</head>
+<body>
+
+    <!--
+    (1) Block elements always start on a new line.
+        They stretch horizontally to take up the full width of their container.
+        Common block elements are <div>, <p>, <h1>–<h6>. Notice how each box pushes the next one below.
+    -->
+    <h2>display: block</h2>
+    <div class="block-demo">Block 1</div>
+    <div class="block-demo">Block 2</div>
+    <div class="block-demo">Block 3</div>
+
+    <hr>
+
+    <!--
+    (2) Inline elements flow inside a line of text, just like words in a sentence.
+        They only take up as much width as their content.
+        Common inline elements are <span>, <a>, <strong>. Notice how they don’t break onto a new line.
+        Ignores width and height properties — you can’t make them bigger than the text naturally allows.
+    -->
+    <h2>display: inline</h2>
+    <!-- <span class="inline-demo">Inline 1</span>
+    <span class="inline-demo">Inline 2</span>
+    <span class="inline-demo">Inline 3</span> -->
+    <div class="inline-demo">Inline 1</div>
+    <div class="inline-demo">Inline 2</div>
+    <div class="inline-demo">Inline 3</div>
+
+    <hr>
+
+    <!--
+    (3) Behaves like text (so they line up horizontally, like inline).
+    But you can set width and height like a block.
+    Margins & padding on all sides work as expected.
+    -->
+    <h2>display: inline-block</h2>
+    <div class="inline-block-demo">Box A</div>
+    <div class="inline-block-demo">Box B</div>
+    <div class="inline-block-demo">Box C</div>
+
+    <hr>
+
+
+</body>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Example 1 - Margin & Padding Reset (body vs *)</title>
+
+    <!-- Reference a local CSS file -->
+    <link rel="stylesheet" href="hello.css">
+</head>
+<body>
+
+    <!-- The web browser puts 8px margin by default.
+        Go to Developer Tools -> Elements -> (select body) -> Box Model
+
+        We can remove this (defualt to 0)
+
+        What's the difference between body { margin: 0; } and * { margin: 0; }
+
+        body { margin: 0; }
+        - By default, browsers give the <body> element some margin (usually 8px on all sides).
+        - This is why when you open a plain HTML page, the content isn’t touching the very edges.
+        - Setting body { margin: 0; } removes just that default margin, so your page content can go edge-to-edge.
+        - This is commonly done in almost every project.
+
+        * { margin: 0; }
+        - The * is the universal selector. It targets every single element.
+        - This means all margins are removed: not only the body’s margin, but also margins on headings (h1, h2, etc.), paragraphs (p), lists (ul, ol), etc.
+        - Essentially, this “resets” margins across the board.
+        - This is heavier, because it applies to every element (performance impact is tiny, but conceptually it’s much broader).
+
+        Summary:
+        - Use body { margin: 0; } when you just want a clean canvas.
+        - Use * { margin: 0; } when want to reset, or when you want total control of spacing from scratch.
+
+        Elements that come with default margins:
+        - body
+        - headings such as h1
+        - paragraph
+
+        Elements that come with default paddings:
+        - ul
+        - ol
+        - table, th, td
+        - <button>, <input>, <textarea>, <select>
+    -->
+
+    <!-- Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe veritatis reprehenderit autem aperiam? Necessitatibus, in? Cupiditate, corporis ratione numquam dolorem ab ut voluptates fugiat quisquam ex odit doloremque iure sit. -->
+
+    <!-- <h1>Hello World Welcome to North Korea</h1>
+
+    <p>We've got plenty of food in this country!</p> -->
+
+    <!-- <ul>
+        <li>Apple</li>
+        <li>Orange</li>
+        <li>Pear</li>
+    </ul> -->
+
+    <button class="mybtn">Press Me to Make Me LOL</button>
+
+    <button class="mybtn">Press Me to Make Me CRY</button>
+    
+</body>
+</html>

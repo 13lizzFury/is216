@@ -1,0 +1,210 @@
+/* styles.css - Challenge #3 (Solution Example: Park Map - Positioning) */
+
+
+/* 0) Base page */
+html, body {
+    height: 100%;
+}
+body {
+    margin: 0;
+    font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background-color: #f7f9ff;
+    color: #222222;
+}
+
+
+/* 1) Container */
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 24px 16px;
+}
+
+
+/* 2) Map section heading */
+.map-section h2 {
+    margin: 8px 0 12px 0;
+    font-size: 1.6rem;
+}
+
+
+/* 3) Map wrapper */
+.map-wrapper {
+    position: relative;          /* positioning context for markers + legend */
+    max-width: 100%;
+    overflow: hidden;
+    border-radius: 12px;
+    border: 1px solid #e6e6e6;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
+    background: #ffffff;
+}
+
+
+/* 4) Map image */
+.park-map {
+    display: block;
+    width: 100%;
+    height: auto;
+    user-select: none;
+}
+
+/* Shared z-index layers */
+.map-wrapper .park-map { z-index: 1; }
+.marker { z-index: 2; }
+.tooltip { z-index: 3; }
+.legend { z-index: 4; }
+
+
+/* 5) Markers */
+.marker {
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: #e91e63;
+    border: 2px solid #ffffff;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.25);
+    transform: translate(-50%, -50%); /* center over coordinates */
+    cursor: pointer;
+}
+
+/* Example coordinates (tweak as desired) */
+#marker-atlantis { top: 32%; left: 22%; }
+#marker-gyro     { top: 18%; left: 78%; }
+#marker-carousel { top: 62%; left: 30%; }
+#marker-river    { top: 70%; left: 70%; }
+
+
+/* 6) Tooltips */
+.marker .tooltip {
+    position: absolute;
+    bottom: 140%;
+    left: 50%;
+    transform: translateX(-50%);
+    white-space: nowrap;
+    background: #111111;
+    color: #ffffff;
+    font-size: 0.85rem;
+    padding: 6px 8px;
+    border-radius: 8px;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 140ms ease, transform 140ms ease;
+}
+
+.marker:hover .tooltip {
+    opacity: 1;
+    transform: translateX(-50%) translateY(-2px);
+}
+
+
+/* 7) Legend box */
+.legend {
+    position: absolute;
+    right: 12px;
+    bottom: 12px;
+    background: rgba(255, 255, 255, 0.9);
+    border: 1px solid #dddddd;
+    border-radius: 10px;
+    padding: 10px 12px;
+    font-size: 0.9rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+.legend h3 {
+    margin: 0 0 6px 0;
+    font-size: 1rem;
+}
+.legend ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.legend li {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin: 4px 0;
+}
+.legend .dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    display: inline-block;
+    border: 1px solid #999999;
+}
+.legend .dot.ride { background: #e91e63; }
+.legend .dot.landmark { background: #03a9f4; }
+
+
+/* 8) Fixed Back to Top button */
+.back-to-top {
+    position: fixed;
+    right: 16px;
+    bottom: 16px;
+    background: #2a18c8;
+    color: #ffffff;
+    text-decoration: none;
+    padding: 10px 14px;
+    border-radius: 999px;
+    font-weight: 700;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.18);
+    z-index: 999;
+    transition: transform 120ms ease, background 120ms ease;
+}
+.back-to-top:hover {
+    transform: translateY(-2px);
+    background: #1b10a5;
+}
+
+
+/* 9) Footer */
+.site-footer {
+    text-align: center;
+    color: #555555;
+    font-size: 0.9rem;
+    border-top: 1px solid #e7e7e7;
+    padding-top: 16px;
+    margin-top: 24px;
+}
+
+
+/* 10) Getting Here & Around section styling  */
+.transport {
+    margin-top: 32px;
+}
+
+.transport h2 {
+    margin-bottom: 16px;
+    font-size: 1.6rem;
+}
+
+/* Two-column layout */
+.transport-columns {
+    display: flex;
+    gap: 24px;
+}
+
+.transport-info,
+.transport-discounts {
+    flex: 1;
+    background: #ffffff;
+    padding: 16px;
+    border: 1px solid #dddddd;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.transport h3 {
+    margin-top: 16px;
+    font-size: 1.1rem;
+}
+
+.transport p,
+.transport ul {
+    line-height: 1.6;
+    margin: 6px 0 12px 0;
+}
+
+.transport ul {
+    padding-left: 20px;
+}

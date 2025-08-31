@@ -1,0 +1,27 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.block-demo {
+    display: block;        /* each box is its own block */
+    background: #90caf9;
+    margin: 6px 0;
+    padding: 8px;
+}
+
+.inline-demo {
+    display: inline;       /* flows with text */
+    background: #ffcc80;
+    padding: 4px;
+    margin: 4px;
+}
+
+.inline-block-demo {
+    display: inline-block;   /* inline flow, but behaves like a block */
+    background: #a5d6a7;
+    width: 100px;            /* respects width & height */
+    height: 50px;
+    margin: 4px;
+    line-height: 50px;
+}

@@ -2,23 +2,54 @@
 
 
 /* 0) Base page (font, background, text color, remove default margins) */
-
+* {
+   margin: 0;
+   padding: 0;
+   font-family: Arial, Helvetica, sans-serif;
+}
 
 /* 1) Container (center, max-width, padding) */
-
+.container {
+   max-width: 920px;
+   margin: auto;
+}
 
 /* 2) Map section heading (spacing, readability) */
+.site-header {
+   margin: 40px 15px 20px 15px;
+}
 
+.site-header > h1 {
+   margin-bottom: 20px;
+}
+
+.map-section {
+   margin: 10px 15px;
+}
+
+.map-section > h2 {
+   margin-bottom: 20px;
+}
 
 /* 3) Map wrapper
    - Make this the positioning context for absolute children (hint: relative).
    - Ensure it doesn't overflow horizontally.
 */
-
+.map-wrapper {
+   position: relative;
+   padding: 10px;
+   text-align: center;
+   border: 2px solid whitesmoke;
+   border-radius: 10px;
+}
 
 /* 4) Map image
    - Keep it responsive inside the container (full width of wrapper, auto height).
 */
+.park-map {
+   width: 100%;
+   object-fit: contain;
+}
 
 
 /* 5) Markers
@@ -27,7 +58,36 @@
    - Center each marker over its coordinates (hint: translate).
    - Ensure markers appear ABOVE the map (z-index).
 */
+.marker {
+   display: block;
+   position: absolute;
+   background-color: rgb(200, 35, 120);
+   border: 2px solid white;
+   border-radius: 50%;
+   height: 1.25em;
+   width: 1.25em;
+   z-index: 1;
+}
 
+#marker-atlantis {
+   bottom: 66%;
+   left: 21.5%;
+}
+
+#marker-carousel {
+   bottom: 37%;
+   left: 29.5%;
+}
+
+#marker-gyro {
+   bottom: 79.5%;
+   left: 76.5%;
+}
+
+#marker-river {
+   bottom: 30%;
+   left: 68.5%;
+}
 
 /* 6) Tooltips
    - Hidden by default; visible on hover of the marker.
@@ -35,13 +95,71 @@
    - Add a subtle background, border, and rounded corners.
    - Raise above map and marker with z-index.
 */
+.tooltip {
+   position: absolute;
+   visibility: hidden;
+   bottom: 100%;
+   padding: 5px 10px;
+   z-index: 2;
 
+   background-color: black;
+   color: white;
+   text-align: center;
+   border-radius: 10px;
+}
+
+.marker:hover .tooltip {
+   visibility: visible;
+}
 
 /* 7) Legend box
    - Position absolute INSIDE the map wrapper, bottom-right corner.
    - Add background, padding, small rounded corners.
    - Keep text legible and compact.
 */
+.legend {
+   position: absolute;
+   left: 86%;
+   bottom: 2%;
+   text-align: left;
+   padding: 10px;
+   background-color: white;
+   border: 1px solid lightgray;
+   border-radius: 10px;
+}
+
+.legend h3 {
+   font-size: medium;
+   margin-bottom: 7.5px;
+}
+
+.legend ul {
+  list-style: none;
+}
+
+.legend .dot {
+   display: inline-block;
+   border: 2px solid lightgray;
+   border-radius: 50%;
+   height: 1em;
+   width: 1em;
+}
+
+.legend .dot.ride {
+   background-color: rgb(200, 35, 120);
+}
+
+.legend .dot.landmark {
+   background-color: rgb(35, 148, 200);
+}
+
+.legend li {
+   display: flex;
+   align-items: center;
+   font-size: smaller;
+   gap: 7.5px;
+   margin-top: 7.5px;
+}
 
 
 /* 8) Fixed Back to Top button
@@ -50,9 +168,61 @@
    - Style as a small pill button.
    - Keep above everything with z-index.
 */
-
+.back-to-top {
+   position: fixed;
+   bottom: 20px;
+   right: 20px;
+   background-color: navy;
+   color: white;
+   text-decoration: none;
+   padding: 10px 12px;
+   border-radius: 20px;
+}
 
 /* 9) Footer (muted, centered) */
-
+.site-footer {
+   border-top: 1px solid lightgrey;
+   padding-top: 25px;
+   color: #555;
+   text-align: center;
+   font-size: small;
+} 
 
 /* 10) Getting Here & Around section styling  */
+.transport {
+   margin: 25px 15px;
+}
+
+.transport-columns {
+   display: flex;
+   margin-top: 20px;
+   column-gap: 20px;
+}
+
+.transport-info {
+   width: 45%;
+   padding: 15px;
+   border: 2px solid whitesmoke;
+   border-radius: 10px;
+   line-height: 1.6;
+}
+
+.transport-info > h3 {
+   margin: 10px 0;
+}
+
+.transport-discounts {
+   width: 45%;
+   padding: 15px;
+   border: 2px solid whitesmoke;
+   border-radius: 10px;
+   line-height: 1.6;
+}
+
+.transport-discounts > h3 {
+   margin: 10px 0;
+}
+
+.transport-discounts li {
+   margin-left: 20px;
+}

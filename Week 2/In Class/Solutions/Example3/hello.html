@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Example 3 - Centering Horizontally & Vertically</title>
+
+    <!-- Reference a local CSS file -->
+    <link rel="stylesheet" href="hello.css">
+</head>
+<body>
+
+    <!--
+    (1) Horizontally center the parent
+        - Apply this to the parent:
+            margin: auto;
+        - Note that this only works for elements with display: block
+            - such as <div>
+            - <img> is display: inline
+
+    (2) Horizontally center the content inside
+        - Apply this to the parent:
+            text-align: center;
+
+    (3) What if I only want to center the image?
+        (The text stays left-aligned by default)
+
+        - Remove text-align: center; from the parent
+
+        To the <img>, can I apply:
+            margin: auto;
+        - This does not center the image because <img> is display: inline
+        - Need to change <img>'s display to block
+
+        #justin-img {
+            width: 80%;
+            display: block;
+            margin: auto;
+        }
+
+
+    Solution so far:
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        #parent {
+            width: 500px;
+            height: 400px;
+            background-color: pink;
+            margin: auto;
+        }
+
+        #justin-img {
+            width: 80%;
+            display: block;
+            margin: auto;
+        }
+
+    (4) Vertically center child text and child <img>
+    
+    -->
+
+    <div id="parent">
+        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Repellat rem soluta, minima nulla laboriosam fugit dolore dicta ut eum consectetur id quod ad voluptas ab fugiat, at doloribus sunt sapiente!
+        <img id="justin-img" src="justin1.png">
+    </div>
+    
+
+    
+    
+</body>
+</html>

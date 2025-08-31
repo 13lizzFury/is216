@@ -1,0 +1,21 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+#parent {
+    width: 500px;
+    height: 400px;
+    background-color: pink;
+    margin: auto;
+
+    display: flex;             /* activate flex layout */
+    flex-direction: column;    /* stack children vertically */
+    justify-content: center;   /* center along vertical axis */
+    align-items: center;       /* center along horizontal axis <img> */
+    text-align: center;        /* center the text */
+}
+
+#justin-img {
+    width: 80%;
+}

@@ -1,0 +1,112 @@
+/* styles.css - Challenge #1 (Solution Example, simplified) */
+
+body {
+    font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background-color: #f7f9ff;   /* light background */
+    color: #222222;              /* main text color */
+    margin: 0;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 24px;
+}
+
+.site-header h1 {
+    font-size: 3em;
+    font-weight: 800;
+    text-align: center;
+    color: #e91e63;              /* brand pink */
+    margin: 0 0 8px 0;
+}
+
+.site-header .tagline {
+    text-align: center;
+    color: #555555;
+    font-style: italic;
+    margin: 0 0 24px 0;
+}
+
+p {
+    line-height: 1.6;
+    font-size: 1rem;
+    margin: 0 0 16px 0;
+}
+
+/*
+Option 1 for centering mascot image
+    display: block;  // images are inline by default, make it a block
+    margin: 0 auto;  // auto left/right margins center it horizontally
+*/
+#mascot-image {
+    display: block;
+    margin: 0 auto;
+    width: 200px;
+}
+
+.mascot-placeholder {
+    /* text-align: center; */ /* Option 2 for centering mascot image */ 
+    width: 260px;
+    margin: auto;
+    background: #ffffff;
+    border: 2px solid #333333;
+    border-radius: 20px;
+}
+
+.actions {
+    text-align: center;
+    margin: 12px 0 28px 0;
+}
+
+.buy-tickets {
+    padding: 12px 20px;
+    background-color: #38c818;
+    color: #ffffff;
+    border: none;
+    border-radius: 10px;
+    font-size: 1rem;
+    font-weight: 700;
+    box-shadow: 0 2px 12px rgb(0, 229, 255);
+    transition: background 120ms ease, transform 80ms ease;
+    margin-right: 20px;
+    margin-bottom: 20px;
+}
+
+.buy-tickets:hover {
+    background-color: #139929;
+    cursor: pointer;
+    transform: translateY(-1px);
+}
+
+.make-donation {
+    padding: 12px 20px;
+    background-color: #2a18c8;
+    color: #ffffff;
+    border: none;
+    border-radius: 10px;
+    font-size: 1rem;
+    font-weight: 700;
+    box-shadow: 0 2px 12px rgb(245, 3, 216);
+    transition: background 120ms ease, transform 80ms ease;
+    margin-right: 20px;
+}
+
+.make-donation:hover {
+    background-color: #131e99;
+    cursor: pointer;
+    transform: translateY(-1px);
+}
+
+.site-footer {
+    text-align: center;
+    color: #555555;
+    font-size: 0.9rem;
+    border-top: 1px solid #e7e7e7;
+    padding-top: 16px;
+    margin-top: 24px;
+}
+
+/* .about {
+    text-align: center;
+} */

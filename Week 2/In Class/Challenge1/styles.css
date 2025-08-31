@@ -1,29 +1,51 @@
 /* styles.css - Challenge #1 (Skeleton) */
-body {
+
+/* Universal CSS */
+* {
     background-color: aliceblue;
     font-family: Arial, Helvetica, sans-serif;
+    margin: 0px;
 }
 
-h1.site-header {
-    color: maroon;
-    text-align: center;
+
+/* Page Content */
+.container {
+    margin: auto;
+    max-width: 800px;
+    padding: 20px;
 }
 
-.site-header h1 {
-    color: maroon;
+
+/* Site Header */
+.site-header {
+    font-size: x-large;
+    margin-bottom: 25px;
+}
+
+.site-header > h1 {
+    color: deeppink;
     text-align: center;
+    font-weight: 800;
 }
 
 .tagline {
+    margin: 10px;
     font-size: medium;
     color: black;
     text-align: center;
     font-style: italic;
 }
 
+
+/* Mascot Image */
+.mascot-placeholder {
+    max-width: 55%;
+    margin: auto;
+}
+
 #mascot-image {
     background-color: white;
-    width: 45%;
+    max-width: inherit;
     display: block;
     margin: auto;
     border-style: solid;
@@ -33,35 +55,64 @@ h1.site-header {
     padding-right: 5%;
 }
 
-.about {
-    padding-left: 5%;
-    padding-right: 5%;
+
+/* About Description */
+.about > h2, p {
+    margin: 20px 0px 20px 0px;
+    line-height: 1.6;
 }
 
+
+/* Action Buttons */
 .actions {
+    /* text-align: center; */
     display: flex;
     justify-content: center;
-    gap: 15px;
+    flex-wrap: wrap; /* Prevents Resizing of Child Elements */
+    padding: 0px 20px;
 }
 
 .actions button {
-    padding: 10px 20px;
+    color: white;
+    font-size: medium;
+    font-weight: bold;
+    padding: 12px 20px;
     border-width: 0px;
     border-radius: 12px;
+    transition: background 0.5s, transform 0.5s;
+    margin-bottom: 20px;
+    margin-right: 10px;
+}
+
+.actions button:hover {
+    cursor: pointer;
+    transform: scale(1.05, 1.05);
 }
 
 .buy-tickets {
+    background-color: limegreen;
+    box-shadow: 0px 0px 10px 1px aqua;
+}
+
+.buy-tickets:hover {
     background-color: green;
-    color: white;
-    box-shadow: 0 0 10px greenyellow;
 }
 
 .make-donation {
     background-color: blue;
-    color: white;
-    box-shadow: 0 0 10px purple;
+    box-shadow: 0px 0px 10px 1px hotpink;
 }
 
+.make-donation:hover {
+    background-color: navy;
+}
+
+
+/* Footer */
 .site-footer {
+    font-size: small;
+    color: rgba(0, 0, 0, 0.6);
     text-align: center;
+    border-top: 1px solid rgba(0, 0, 0, 0.2);
+    padding-top: 12px;
 }
