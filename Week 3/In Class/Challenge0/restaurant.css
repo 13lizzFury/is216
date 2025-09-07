@@ -13,9 +13,9 @@
     border: 1px solid black;
     display: flex;
     flex-direction: column;
-    margin: auto;
-    padding: 25px;
     justify-content: space-between;
+    padding: 25px;
+    margin: auto;
 }
 
 
@@ -58,3 +58,7 @@
 
 
 /* YOU MAY ADD MORE CSS STYLING ANYWHERE IN THIS FILE */
+body {
+    height: 100vh;
+    display: flex;
+}
