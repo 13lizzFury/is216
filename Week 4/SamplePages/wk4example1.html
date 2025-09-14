@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Example 1</title>
+</head>
+<body>
+  <h1>My header</h1>
+  <p id="time">time</p>
+  <!-- What do you think would happy if I un-comment the following? -->
+  <!-- <p id="time">time</p>  -->
+    <button onclick= "document.getElementById('time').innerHTML= Date()">What time is it? </button>
+
+    <p class="hello">To be updated</p>
+    <p class="hello">To be updated</p>
+    <button onclick= "sayHello()">Say Hello </button>
+    <script>
+      function sayHello() {
+        //be mindful that x is an array here
+        var x = document.getElementsByClassName("hello");
+        for (ele of x) {
+          ele.innerHTML = '<p style="background-color:tomato;">Hello~~~</p>';
+        }
+      }
+    </script>
+</body>
+</html>

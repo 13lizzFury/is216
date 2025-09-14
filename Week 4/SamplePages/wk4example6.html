@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My title</title>
+</head>
+<body>
+  <div id="div">Hi…</div>
+  <script>
+       var element = document.getElementById("div");
+       //element.innerText = "Hello there…";
+       element.innerHTML = "<p style='color:blue;'>blue says hi</p>";
+      //  element.innerText = "<p style='color:blue;'>blue says hi</p>";
+      //  Security alert: be mindful with setting innerHTML
+
+  </script>    
+
+  <!-- 
+    
+    Security alert: be mindful with setting innerHTML 
+    Consider this: what if the user enters something like "Prof Kyong <script> while (true) { ... } </script>"
+  
+  -->
+  <p>
+  What is your name? <input id="name"><br><button onclick="showMyName()">Enter</button>
+
+  <div id="showName"></div>
+  </p>
+  <script>
+    function showMyName () {
+      var inEle = document.getElementById("name");
+      var outEle = document.getElementById("showName");
+      outEle.innerText = "Good Morning, " + inEle.value;
+    }
+  </script>   
+</body>
+</html>

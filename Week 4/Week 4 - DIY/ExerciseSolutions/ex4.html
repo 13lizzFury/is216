@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>JavaScript loop</title>
+</head>
+<body>
+
+    <p id="person"></p>
+
+	<script>
+        var persons = [ 
+            {name: "The Forgotten One", age: 50},
+            {name: "The Special One", age: 55},
+            {name: "The Happy One", age: 58},
+            {name: "The Chosen One", age: 54},
+            {name: "The Babyface One", age: 48},
+        ]
+
+        for (var person in persons) {
+            if (persons[person].name == "The Chosen One") {
+                console.log("Name:" + persons[person].name + "; Age: " + persons[person].age)
+            }
+        }
+
+        var len = persons.length;
+        for (var i=0; i<len; i++) {
+            var person = persons[i];
+            var name;
+            var age;
+            var found = false;
+
+            if (person.name == "The Chosen One") {
+                found = true;
+                name = person.name;
+                age = person.age;
+                console.log("Name:" + name + "; Age: " + age)
+                break;
+            }
+            
+        }
+	</script>
+</body>
+</html>

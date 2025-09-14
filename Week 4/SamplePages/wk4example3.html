@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>My title</title>
+</head>
+
+<body>
+    Email: <input type="text" id="email" name="email">
+    Password: <input type="password" name="password">
+    <input type="submit" value="Submit" onclick="validateForm()">
+  <script>
+    function validateForm() {
+      // getElementsByName returns a collection of 
+      console.log(document.getElementsByName("password")[0].type);
+      var input = document.getElementById("email").value;
+      if (input.indexOf("@") == -1) {
+        alert("No @ detected. Alert, alert.")
+      }
+    }
+  </script>
+</body>
+
+</html>
