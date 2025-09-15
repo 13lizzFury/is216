@@ -15,10 +15,10 @@ function generate_board() {
 
     // YOUR CODE GOES HERE
 
-    let selectedFriends = document.getElementById("friends").selectedOptions;
+    let selected_friends = document.getElementById("friends").selectedOptions;
 
-    for (friend of selectedFriends) {
-        friends.push(friend.attributes.value.value);
+    for (friend_option of selected_friends) {
+        friends.push(friend_option.getAttribute("value"));
     }
 
     // Display user's selection in Developer Tools --> Console.
@@ -51,17 +51,16 @@ function generate_board() {
     //   for randomizing the order of Array elements.
     //        shuffleArray()
     //============================================================================
-    const fruits = [ 'apple', 'banana', 'kiwi', 'orange' ];
+    const fruits = ['apple', 'banana', 'kiwi', 'orange'];
 
     // YOUR CODE GOES HERE
 
-    let cards = [];
+    cards = [];
 
-    for (count = 0; count < 2; count++) {
-        for (friend of friends) {
-            for (fruit of fruits) {
-                cards.push("cards/" + fruit + "_" + friend + ".png");
-            }
+    for (friend of friends) {
+        for (fruit of fruits) {
+            cards.push("cards/" + fruit + "_" + friend + ".png");
+            cards.push("cards/" + fruit + "_" + friend + ".png");
         }
     }
 
@@ -92,28 +91,48 @@ function generate_board() {
 
     // You will need to rewrite the value of this result_str (String).
 
-    // let result_str = `
-    //     <div style='color: red'>
-    //         <p>This is a sample HTML code that will replace the parent div's innerHTML!</p>
-    //         <p>Instead of paragraph texts, you will display cards here.</p>
-    //     </div>
-    // `;
+    max_score = friends.length * fruits.length;
 
     let result_str = ``;
 
-    for (row_count = 0; row_count < num_rows; row_count++) {
+    for (row_count = 1; row_count <= num_rows; row_count++) {
         result_str += `<div class='row'>`;
 
-        for (col_count = 0; col_count < num_cols; col_count++) {
+        for (col_count = 1; col_count <= num_cols; col_count++) {
+            let id = (row_count - 1) * 4 + col_count;
+
             result_str += `
                 <div class='column'>
-                    <img src='${cards.pop()}'>
+                    <img src='cards/hidden.png' id='${id}' onclick='flipCard(this)'>
                 </div>
             `;
         }
-        
+
         result_str += `</div>`;
     }
+
+    document.getElementById("total-score").innerText = "Total Score: " + total_score;
+
+
+    // document.getElementById('game-board').innerHTML = ``;
+
+    // for (row_count = 0; row_count < num_rows; row_count++) {
+    //     var row = document.createElement("div");
+    //     row.className = "row";
+
+    //     for (col_count = 0; col_count < num_cols; col_count++) {
+    //         var col = document.createElement("div");
+    //         col.className = "column";
+
+    //         var card = document.createElement("img");
+    //         card.src = cards.pop();
+
+    //         col.appendChild(card);
+    //         row.appendChild(col);
+    //     }
+
+    //     document.getElementById("game-board").appendChild(row);
+    // }
 
 
     // DO NOT MODIFY THE FOLLOWING
@@ -127,8 +146,57 @@ function generate_board() {
 // DO NOT MODIFY
 function shuffleArray(array) {
     for (let i = array.length - 1; i > 0; i--) {
-      const j = Math.floor(Math.random() * (i + 1));
-      [array[i], array[j]] = [array[j], array[i]]; // Swap elements
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]]; // Swap elements
     }
     return array;
 }
+
+
+function flipCard(card) {
+    cards_flipped.push(card);
+
+    let card_id = card.getAttribute("id");
+    card.setAttribute("src", cards[card_id - 1]);
+
+    if (cards_flipped.length == 2) {
+        let card_one = cards_flipped.pop();
+        let card_two = cards_flipped.pop();
+
+        if (card_one.getAttribute("src") == card_two.getAttribute("src")) {
+            console.log("Match!");
+
+            total_score += 1;
+            document.getElementById("total-score").innerText = "Total Score: " + total_score;
+
+            setTimeout(() => {
+                card_one.setAttribute("style", "filter: opacity(75%)");
+                card_one.removeAttribute("onclick");
+
+                card_two.setAttribute("style", "filter: opacity(75%)");
+                card_two.removeAttribute("onclick");
+            },
+                1500
+            )
+        }
+        else {
+            console.log("No Match!");
+
+            setTimeout(() => {
+                card_one.setAttribute("src", "cards/hidden.png");
+                card_two.setAttribute("src", "cards/hidden.png");
+            },
+                1500
+            )
+        }
+    }
+
+    if (total_score == max_score) {
+        document.getElementById("total-score").innerText = "All Matched, Congratulations!";
+    }
+}
+
+var cards = [];
+var cards_flipped = [];
+var total_score = 0;
+var max_score = 0;

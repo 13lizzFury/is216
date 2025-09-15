@@ -54,17 +54,19 @@ function show(button_element) {
     button_element.style.backgroundColor = "aqua";
     button_element.style.color = "black";
 
-    console.log(previous_clicked_btn);
-
     if (previous_clicked_btn) {
         previous_clicked_btn.style.backgroundColor = "darkblue";
         previous_clicked_btn.style.color = "white";
     }
 
-    var previous_clicked_btn = button_element;
+    // Updates the global variable with the current selected button element
+    previous_clicked_btn = button_element;
 }
 
 // Please avoid writing spaghetti code!
 // Feel free to add more functions as needed!
 // Modularize your logics into bite-sized units where
 //   Each 'unit' handles one logic.
+
+// Declares a global variable that allows the page to "remember" each button element selected
+var previous_clicked_btn;
