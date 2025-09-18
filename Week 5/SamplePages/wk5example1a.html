@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+
+    <h1>JavaScript Functions</h1>
+    <h2>Callback Functions</h2>
+
+    From: <input type="number" id="num1">
+    To: <input type="number" id="num2">
+    <div style="display:block; margin-top:20px;">
+        Sum of prime: <p id="demo"></p>
+        Sum of non-prime: <p id="demo2"></p>
+    </div>
+    <button id="btnCalc" onclick="calculate()">Calculate</button>
+
+    <script>
+        var start;
+        function myDisplayer(idElem, something) {
+            document.getElementById(idElem).innerText = something;
+            //console.log(Date.now()-start);
+        }
+
+        function isPrime(n) {
+            if (isNaN(n) || !isFinite(n) || n % 1 || n < 2) return false;
+            var m = Math.sqrt(n); //returns the square root of the passed value
+            for (var i = 2; i <= m; i++)
+                if (n % i == 0) return false;
+            return true;
+        }
+
+        function myCalculator(num1, num2, myCallback) {
+            let sum = 0;
+            for (let i = num1; i < num2; i++) {
+                if (isPrime(i))
+                    sum += Number(i);
+                    myCallback("demo", sum);
+            }
+            
+        }
+
+        function myCalculator2(num1, num2, myCallback) {
+            let sum = 0;
+            for (let i = num1; i < num2; i++) {
+                if (!isPrime(i))
+                    sum += Number(i);
+                    myCallback("demo2", sum);
+            }
+            
+        }
+
+        function calculate() {
+            let num1 = document.getElementById("num1").value;
+            let num2 = document.getElementById("num2").value;
+            var start= Date.now();
+            document.getElementById("demo").innerText="Calculating...";
+            document.getElementById("demo2").innerText="Calculating...";
+            start = Date.now();
+            setTimeout(()=>{
+                myCalculator(num1, num2, myDisplayer);
+                myCalculator2(num1, num2, myDisplayer);
+                console.log(Date.now()-start);
+            }, 500);
+            
+        }
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,34 @@
+<html>
+    <head>
+        <style>
+            p {
+                white-space: pre; /* This makes newlines work */
+            }
+        </style>
+    </head>
+    <body>
+        <p id="output"></p>
+    </body>
+    <script>
+        function resolveAfter2Seconds() {
+            return new Promise((resolve) => {
+                setTimeout(() => {
+                resolve("A message that appears after 2 seconds");
+                }, 2000);
+            });
+        }
+
+        async function asyncCall() {
+            document.getElementById("output").innerText += "Result will be:\n";
+            // remove the await and see what happens!
+            try {
+                result = await resolveAfter2Seconds();
+                document.getElementById("output").innerText += result;
+            }
+            catch(err) {
+                console.error(err);
+            }
+        }
+        asyncCall();
+    </script>
+</html>

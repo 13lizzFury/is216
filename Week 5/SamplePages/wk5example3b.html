@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>
+        Axios : POST with Params
+    </title>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+</head>
+
+<body>
+    <div>
+        <p id="axios">Let Axios change this text</p>
+        <button type="button" onclick="updatePost()">Click Me!</button>
+    </div>
+
+    <script>
+        function updatePost() {
+            //const url = 'http://jsonplaceholder.typicode.com/todos'
+            //const data = { userId: '1'}
+            const url = 'http://localhost/is216/REST/blog/update.php'
+			const params = new URLSearchParams()
+			params.append("id", 1)
+			params.append("subject", "Term ends")
+			params.append("entry", "Finally the term has ended")
+			params.append("mood", "Happy")
+            axios.post(url, params)
+            .then(response =>  {
+                console.log(response.data)
+                console.log(response.data.subject)
+                const status = response.data.status
+                document.getElementById("axios").innerText = status;
+            })
+            .catch(error => {
+                console.log(error.message)
+                document.getElementById("axios").innerText = error.message;
+            });   
+        }
+    </script>
+</body>
+
+</html>

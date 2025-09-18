@@ -1,0 +1,68 @@
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    margin: 0;
+    padding: 20px;
+    background-color: #f5f5f5;
+}
+#container {
+    text-align: center;
+    background-color: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    transition: background-color 0.3s;
+}
+button:hover {
+    background-color: #45a049;
+}
+#result {
+    margin-top: 20px;
+    min-height: 200px;
+
+    /* --- always a flex container --- */
+    display: none;                 
+    flex-direction: column;        /* stack avatar over name  */
+    align-items: center;           /* horizontal centering    */
+    justify-content: center;       /* vertical   centering    */
+    text-align: center;            /* centre long lines too   */
+}
+
+#avatar {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 15px;
+    border: 3px solid #4CAF50;
+
+    /* ensure it sits centred even if it becomes inline-block */
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#name {
+    font-size: 20px;
+    font-weight: bold;
+    max-width: 240px;      /* or whatever suits */
+    word-wrap: break-word; /* wrap long names   */
+    text-align: center;
+}
+
+
+    

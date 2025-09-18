@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
+
+    <!-- Axios CDN -->
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+</head>
+<body>
+    <div class="jumbotron">
+        <p>Type a name in the input field below:</p>
+        <form>
+            Name: <input type="text" id="name">
+        </form>
+        <p>Suggestions: <span id="txtHint"></span></p>
+    </div>
+
+    <script>
+        var nameElem = document.getElementById("name");
+        nameElem.addEventListener("keyup", showHint);
+
+        function showHint() {
+            /* // getAttribute methods only return the initial value when it's predefined; otherwise null
+            var val = nameElem.getAttribute("value");
+            console.log(val);  // -> always return the same initial value 
+        
+            var val2 = nameElem.getAttributeNode("value"); // if attr value is not defined in HTML, it returns null obj
+            console.log(val2.value); // -> always return the same initial value */
+
+            var query = event.target.value;
+            if(query == '') {
+                document.getElementById("txtHint").innerHTML = "";
+            } else {
+                var url = "getHint.php?query=" + query
+                // url = encodeURI(url)
+                axios.get(url)
+                .then(response =>  {
+                    console.log(response.data)
+                    document.getElementById("txtHint").innerHTML = response.data;
+                })
+                .catch(error => {
+                    console.log(error.message)
+                    document.getElementById("txtHint").innerHTML = error.message;
+                }); 
+            }
+        }
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js" integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q" crossorigin="anonymous"></script>
+
+</body>
+</html>

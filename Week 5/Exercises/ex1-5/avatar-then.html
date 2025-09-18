@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Random User Generator</title>
+    <link rel="stylesheet" href="avatarStyle.css">
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+</head>
+<body>
+    <div id="container">
+        <button id="generateBtn">Generate</button>
+        <div id="result" >
+            <img id="avatar" alt="User avatar">
+            <p id="name"></p>
+        </div>
+    </div>
+
+    <script>
+        const generateBtn = document.getElementById('generateBtn');
+        const resultDiv = document.getElementById('result');
+        const avatarImg = document.getElementById('avatar');
+        const namePara = document.getElementById('name');
+
+        generateBtn.addEventListener('click', generateRandomUser);
+
+        function generateRandomUser() {
+            resultDiv.style.display = "flex";
+
+            // Hide previous results
+            avatarImg.style.display = 'none';
+            namePara.style.display = 'none';
+
+            // Show loading state
+            const loadingText = document.createElement('p');
+            loadingText.textContent = 'Generating...';
+            resultDiv.appendChild(loadingText);
+
+            axios.get('https://randomuser.me/api/')
+                .then(response => {
+                    const user = response.data.results[0];
+                    const fullName = `${user.name.first} ${user.name.last}`;
+                    namePara.textContent = fullName;
+
+                    return axios.get('avatar.php');
+                })
+                .then(avatarResponse => {
+                    avatarImg.src = avatarResponse.data.url;
+
+                    // Clear loading and show results
+                    resultDiv.removeChild(loadingText);
+                    avatarImg.style.display = 'block';
+                    namePara.style.display = 'block';
+                })
+                .catch(error => {
+                    // Remove loading and hide result
+                    while (resultDiv.firstChild) {
+                        resultDiv.removeChild(resultDiv.firstChild);
+                    }
+                    resultDiv.style.display = "none";
+                    console.error(error);
+                });
+        }
+
+    </script>
+</body>
+</html>

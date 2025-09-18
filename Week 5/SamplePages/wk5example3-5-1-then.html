@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Axios: Asynchronous Demo</title>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <style>
+        #status {
+            color: blue;
+            font-weight: bold;
+            margin: 10px 0;
+        }
+        #weather {
+            color: green;
+            margin: 10px 0;
+        }
+        .interrupt {
+            color: red;
+        }
+        .weather-line {
+            margin-bottom: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <p id="status">Ready to fetch weather data</p>
+        <div id="weather"></div>
+        <button type="button" onclick="getData()">Get Weather Data</button>
+    </div>
+
+    <script>
+        function getData() {
+            const url = 'https://api.openweathermap.org/data/2.5/weather';
+            const query = 'Singapore,sg';
+            const key = '8d6f21e5351582a8051551f99ef3fa88';
+            const weatherDiv = document.getElementById('weather');
+            
+            // Clear previous weather data
+            while (weatherDiv.firstChild) {
+                weatherDiv.removeChild(weatherDiv.firstChild);
+            }
+            
+            // Show that we're starting the request
+            console.log('Request initiated at:', new Date().toLocaleTimeString());
+            
+            // Make the asynchronous request
+            axios.get(url, {
+                params: {
+                    q: query,
+                    APPID: key,
+                    units: 'metric'
+                }
+            })
+            .then(response => {
+                console.log('Response received at:', 
+                            new Date().toLocaleTimeString());
+                const weather = response.data.weather[0].description;
+                const temp = response.data.main.temp;
+                
+                document.getElementById('status').textContent = 'Data received successfully!';
+                
+                // Create weather description element
+                const weatherLine = document.createElement('div');
+                weatherLine.className = 'weather-line';
+                weatherLine.appendChild(document.createTextNode('Current weather in Singapore: '));
+                
+                const weatherStrong = document.createElement('strong');
+                weatherStrong.textContent = weather;
+                weatherLine.appendChild(weatherStrong);
+                weatherDiv.appendChild(weatherLine);
+                
+                // Create temperature element
+                const tempLine = document.createElement('div');
+                tempLine.className = 'weather-line';
+                tempLine.appendChild(document.createTextNode('Temperature: '));
+                
+                const tempStrong = document.createElement('strong');
+                tempStrong.textContent = `${temp}°C`;
+                tempLine.appendChild(tempStrong);
+                weatherDiv.appendChild(tempLine);
+            })
+            .catch(error => {
+                console.log('Error occurred at:', new Date().toLocaleTimeString());
+                document.getElementById('status').textContent = 'Error fetching data!';
+                document.getElementById('weather').textContent = error.message;
+            });
+            
+            // This will execute immediately after initiating the request
+            const status = document.getElementById('status');
+
+            // Create immediate printout element
+            const interruptSpan = document.createElement('span');
+            interruptSpan.className = 'interrupt';
+            interruptSpan.textContent = 'Immediate printout';
+            weatherDiv.appendChild(interruptSpan);
+            
+            const br = document.createElement('br');
+            weatherDiv.appendChild(br);
+            
+            console.log('This log appears immediately after starting the request');
+        }
+    </script>
+</body>
+</html>

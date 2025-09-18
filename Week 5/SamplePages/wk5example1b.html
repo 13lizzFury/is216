@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<body>
+
+    <h1>JavaScript Functions</h1>
+    <h2>Callback Functions</h2>
+
+    <p>The result of the calculation is:</p>
+    From: <input type="number" id="num1">
+    To: <input type="number" id="num2">
+    <div style="display:block; margin-top:20px;">
+    Sum of prime: <p id="demo"></p>
+    Sum of non-prime: <p id="demo2"></p>
+    </div>
+    <button id="btnCalc" onclick="calculate()">Calculate</button>
+
+    <script>
+        var tid;
+        function isPrime(n) {
+            if (isNaN(n) || !isFinite(n) || n % 1 || n < 2) return false;
+            var m = Math.sqrt(n); //returns the square root of the passed value
+            for (var i = 2; i <= m; i++)
+                if (n % i == 0) return false;
+            return true;
+        }
+
+        function myCalculator(num1, num2) {
+            return new Promise((resolve, reject)=>{
+                setTimeout(()=> {
+                    let sum = 0;
+                    for (let i = num1; i < num2; i++) {
+                        if (isPrime(i))
+                            sum += Number(i);
+                    }
+                    resolve(sum);
+                }, 500);
+            });
+        }
+
+        function myCalculator2(num1, num2) {
+            return new Promise((resolve, reject)=>{
+                setTimeout(()=> {
+                    let sum = 0;
+                    for (let i = num1; i < num2; i++) {
+                        if (!isPrime(i))
+                            sum += Number(i);
+                    }
+                    resolve(sum);
+                }, 500);
+            });
+        }
+       
+        function calculate() {
+            let num1 = document.getElementById("num1").value;
+            let num2 = document.getElementById("num2").value;
+            var start = Date.now();
+            document.getElementById("demo").innerText="Calculating...";
+            document.getElementById("demo2").innerText="Calculating...";
+            myCalculator(num1, num2).then(result=>{
+                document.getElementById("demo").innerText = result;
+                console.log(Date.now()-start);
+            });
+            myCalculator2(num1, num2).then(result=>{
+                document.getElementById("demo2").innerText = result;
+                console.log(Date.now()-start);
+            })
+        }
+        
+    </script>
+
+</body>
+
+</html>

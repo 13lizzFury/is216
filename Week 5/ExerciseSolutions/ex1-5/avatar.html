@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Random User Generator</title>
+    <link rel="stylesheet" href="avatarStyle.css">
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+</head>
+<body>
+    <div id="container">
+        <button id="generateBtn">Generate</button>
+        <div id="result" >
+            <img id="avatar" alt="User avatar">
+            <p id="name"></p>
+        </div>
+    </div>
+
+    <script>
+        const generateBtn = document.getElementById('generateBtn');
+        const resultDiv = document.getElementById('result');
+        const avatarImg = document.getElementById('avatar');
+        const namePara = document.getElementById('name');
+
+        generateBtn.addEventListener('click', generateRandomUser);
+
+        // 1. Make sure generateRandomUser is an async function
+        async function generateRandomUser() {
+            try {
+                resultDiv.style.display = "flex";
+                // Hide previous results
+                avatarImg.style.display = 'none';
+                namePara.style.display = 'none';
+
+                // Show loading state
+                const loadingText = document.createElement('p');
+                loadingText.textContent = 'Generating...';
+                resultDiv.appendChild(loadingText);
+
+                // 2. Use randomuser.me to get a random user details
+                // i)   API endpoint is at https://randomuser.me/api/
+                // ii)  Documentation can be found at https://randomuser.me/
+                const response = await axios.get('https://randomuser.me/api/');
+                const user = response.data.results[0];
+
+                // 3. Use avatar.php to generate an URL to a new avatar image
+                //    URL is in data.url of the returned object
+                const avatar = await axios.get('avatar.php');
+
+                // 4. Once all async calls are done and results saved, 
+                //    perform replacement in DOM
+                // 4.1 Replace textContent of namePara with first and last name generated
+                // 4.1 Replace src of avatarImg with URL received
+                namePara.textContent = `${user.name.first} ${user.name.last}`;
+                avatarImg.src = avatar.data.url;  
+
+                // 5. Clear loading text and display results
+                resultDiv.removeChild(loadingText);
+                avatarImg.style.display = 'block';
+                namePara.style.display = 'block';
+
+            } catch (error) {
+                // Clear existing content
+                while (resultDiv.firstChild) {
+                    resultDiv.removeChild(resultDiv.firstChild);
+                }
+                
+                resultDiv.style.display = "none";
+                console.error(error);
+            }
+        }
+    </script>
+</body>
+</html>
