@@ -11,7 +11,12 @@
 
 
 /* Task 2 - Pagination */
-
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 1em;
+}
 
 
 /* Task 11 - IMH Hotline */

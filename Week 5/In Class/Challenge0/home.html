@@ -32,13 +32,13 @@
             <form id="controls" class="row g-3 align-items-end">
 
                 <!-- Task 3 -->
-                <div class="">
+                <div class="col-md-4 col-sm-8 col-12">
                     <label for="q" class="form-label">Search by name</label>
                     <input id="name_search" name="name_search" type="search" class="form-control" placeholder="e.g., margarita">
                 </div>
 
                 <!-- Task 3 -->
-                <div class="">
+                <div class="col-md-2 col-sm-4 col-6">
                     <label for="category" class="form-label">Category</label>
                     <select id="category" class="form-select">
                         <option value="">All</option>
@@ -46,7 +46,7 @@
                 </div>
 
                 <!-- Task 3 -->
-                <div class="">
+                <div class="col-md-2 col-sm-4 col-6">
                     <label for="alcoholic" class="form-label">Alcoholic</label>
                     <select id="alcoholic" class="form-select">
                         <option value="">All</option>
@@ -56,7 +56,7 @@
                 </div>
 
                 <!-- Task 3 -->
-                <div class="">
+                <div class="col-md-2 col-sm-4 col-6">
                     <label for="sort" class="form-label">Sort</label>
                     <select id="sort" class="form-select">
                         <option value="name-asc" selected>Name A → Z</option>
@@ -65,7 +65,7 @@
                 </div>
 
                 <!-- Task 3 -->
-                <div class="">
+                <div class="col-md-2 col-sm-4 col-6">
                     <label for="pageSize" class="form-label">Per page</label>
                     <select id="pageSize" class="form-select">
                         <option>6</option>
@@ -85,7 +85,8 @@
         <section id="results" class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-4"></section>
 
         <!-- Task 1 - Pagination -->
-        <nav class="" aria-label="Pagination">
+        <nav aria-label="Pagination">
+        <!-- <nav class="d-flex justify-content-around align-items-center mt-3" aria-label="Pagination"> -->
             <button id="prev" class="btn btn-outline-secondary" disabled>Prev</button>
             <span id="pageInfo" class="small text-muted">Page 1 of 1</span>
             <button id="next" class="btn btn-outline-secondary" disabled>Next</button>

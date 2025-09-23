@@ -6,7 +6,7 @@ class Database {
     private $host = "localhost";
     private $db_name = "drinksapi";
     private $username = "root";
-    private $password = "root"; // MAMP "root", WAMP empty string
+    private $password = ""; // MAMP "root", WAMP empty string
     private $port = 3306; // Check in PHPMyAdmin for port number
     public $conn;
 

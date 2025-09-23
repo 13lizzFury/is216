@@ -2,41 +2,58 @@
 function get_all_drinks() {
     console.log("[START] get_all_drinks()");
 
-    const api_endpoint_url = 'drinks.json'; // local file
+    // const api_endpoint_url = 'drinks.json'; // local file
+    const api_endpoint_url = 'http://localhost/is216/Week%205/In%20Class/DrinksAPI/api/drink/read.php'; // external API endpoint
 
     axios.get(api_endpoint_url).
     then(response => {
         console.log("Axios call completed successfully!");
 
+        console.log(response.data);
+        
         let section_results = document.getElementById('results');
 
         // Build a string of Bootstrap cards
         let result_str = ``;
-        let drinks_array = response.data.drinks; // Array of drink objects
+        // let drinks_array = response.data.drinks; // Array of drink objects
+        let drinks_array = response.data.records; // Array of drink objects
         console.log(drinks_array); // Array of drink objects
+
+        /*
+            Loop through drinks_array
+            - each item is a drink
+            - each drink should be a Boostrap card, each card will be a "col"
+        */
 
         // Task 4 - Display Drinks
         //   Each drink is a Bootstrap card
         // Replace all the hard-coded strings with actual values as read from the JSON file
-        // for(let drink of drinks_array) {
-        //     result_str += `
-        //         <div class="col">
-        //             <div class="card h-100">
-        //                 <img src="placeholder.png" 
-        //                      class="card-img-top"
-        //                      alt="Drink Name">
-        //                 <div class="card-body">
-        //                     <h5 class="card-title">
-        //                         Drink Name
-        //                     </h5>
-        //                     <p class="card-text small text-muted mb-0">
-        //                         Drink Category • Alcoholic Or Not
-        //                     </p>
-        //                 </div>
-        //             </div>
-        //         </div>
-        //     `;
-        // }
+        for(let drink of drinks_array) {
+
+            console.log(drink);
+
+            drink_photo_url = "http://localhost/is216/Week 5/In Class/DrinksAPI/" + drink.photo_url;
+
+            result_str += `
+                <div class="col">
+                    <div class="card h-100">
+                        <img src="${drink_photo_url}" 
+                             class="card-img-top"
+                             alt="${drink.name}">
+                        <div class="card-body">
+                            <h5 class="card-title">
+                                ${drink.name}
+                            </h5>
+                            <p class="card-text small text-muted mb-0">
+                                ${drink.category} • ${drink.alcoholic}
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+
+        console.log(result_str);
 
         // Inject the cards into the #results section
         section_results.innerHTML = result_str;
@@ -47,6 +64,17 @@ function get_all_drinks() {
         // Task 5 - Data can't be loaded, display alert
         //   "Failed to load drinks data."
         // YOUR CODE GOES HERE
+
+        const error_alert = document.createElement("div");
+        error_alert.setAttribute("class", "alert alert-danger");
+
+        const error_message = document.createTextNode("Failed to load drinks data.");
+
+        error_alert.appendChild(error_message);
+        document.getElementById("results").replaceWith(error_alert);
+
+        console.log(error_alert);
+
     });
 
     console.log("[END] get_all_drinks()");
@@ -77,6 +105,8 @@ function populate_category_dropdown() {
 
 /* Task 8 - Category Dropdown Event Listener */
 
+categories = 
+document.getElementById("category").
 
 
 /* Task 9 - Alcoholic Dropdown Event Listener */
