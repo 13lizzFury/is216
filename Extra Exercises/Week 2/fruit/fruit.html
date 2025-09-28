@@ -2,9 +2,73 @@
 <html>
     <head>
         <title> All About Fruits </title>
+
+        <style>
+            * {
+                margin: 0;
+            }
+
+            body {
+                height: 100vh;
+            }
+
+            div:first-child {
+                position: fixed;
+                background-color: black;
+                width: fit-content;
+                height: 100vh;
+                padding-top: 0.5em;
+                padding-right: 0.75em;
+            }
+
+            
+
+            a {
+                display: block;
+                color: grey;
+                text-decoration: none;
+                font-size: 1.5em;
+            }
+
+            h1, h2 {
+                font-family: Arial;
+                color: goldenrod;
+                font-size: 1em;
+                margin-bottom: 1em;
+            }
+
+            p {
+                margin: 0 1em 1em 0;
+                padding: 15px;
+                border: 2px solid;
+                min-height: 250px;
+            }
+
+            p:nth-child(2) {
+                border-color: olive;
+                border-radius: 1em;
+            }
+
+            p:nth-child(4) {
+                border-color: blueviolet;
+            }
+
+            ul {
+                padding-top: 20px;
+                list-style-type: square;
+                margin-bottom: 1em;
+            }
+
+            ol {
+                background-color: lightcyan;
+            }
+
+
+        </style>
+
     </head>
    
-    <body>
+    <body style="margin: 0; height: 100vh;">
 
         <!--- This is the side menu bar -->
         <div>
@@ -17,7 +81,7 @@
 
         <!--- End of container div -->
 
-        <div>
+        <div style="padding: 20px 0; margin-left: 150px; font-size: 1.5em;">
 
             <h1 id="about"> All About Fruit </h1>
 
@@ -39,7 +103,7 @@
         
         
             <p> 
-                <img src="apple.jpg" > 
+                <img src="apple.jpg" style="float: right; padding: 10; margin-left: 20px;"> 
                 Pellentesque nec dui pulvinar, aliquam est sed, luctus elit. Proin vitae rhoncus ligula. Fusce ultrices, tortor ac auctor congue, 
                 elit lectus cursus eros, a maximus lacus leo in libero. Suspendisse magna sapien, suscipit eget ante eu, efficitur laoreet magna. 
                 Fusce faucibus, ligula ac ullamcorper feugiat, lorem nibh bibendum erat, non efficitur mi diam congue risus. Maecenas tristique 

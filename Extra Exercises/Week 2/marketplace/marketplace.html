@@ -3,8 +3,47 @@
 
     <head>
         <style>
-            
-       
+            p {
+                color: blue;
+                font-size: larger;
+            }
+
+            .image-div {
+                display: inline-block;
+            }
+
+            .table-div {
+                display: inline-block;
+                vertical-align: top;
+            }
+
+            table, th, td {
+                border: 1px solid black;
+            }
+
+            th {
+                background-color: palevioletred;
+            }
+
+            tr:nth-of-type(2n + 3) {
+                background-color: lightblue;
+            }
+
+            input[type=submit] {
+                background-color: white;
+                border: 2px outset;
+                border-radius: 2px;
+            }
+
+            input[type=checkbox] {
+                display: block;
+                margin: auto;
+            }
+
+            input[type=checkbox]:checked {
+                zoom: 300%;
+            }
+
         </style>
     </head>
 
@@ -14,14 +53,14 @@
         <img style="height:100;width:300" src="images/marketplace.jpg">
         <h1> Welcome to my Marketplace </h1>
 
-        <h2> Fruit Section </h2>
+        <h2 style="color: red;"> Fruit Section </h2>
         <p> The list of fruit available are as below :</p>
-	    <div >
-            <div >
+	    <div style="padding: 1em; text-wrap-mode: nowrap;">
+            <div class="image-div">
                 <img style="height:200px;width:200px" src="images/fruit.jpeg">
             </div>
             
-            <div >
+            <div class="table-div" style="margin-left: 3em;">
                 <table style:border=1>
                     <tr> 
                         <th> Name </th>
@@ -53,12 +92,12 @@
             </div>
         </div>
 
-        <h2> Vegetable Section</h2>
+        <h2 style="color: green;"> Vegetable Section</h2>
 
         <p> The list of vegetable available are as below :</p>
         
-        <div>
-            <div>
+        <div style="padding: 1em; text-wrap-mode: nowrap;">
+            <div class="table-div" style="margin-right: 3em;">
                 <table style:border=1>
                     <tr> 
                         <th> Name </th>
@@ -82,20 +121,20 @@
                     </tr>
                 </table>
             </div>
-            <div>
+            <div class="image-div">
                 <img style="height:200px;width:200px" src="images/veg.jpg">
             </div>
             
         </div>
     
-        <h2> Drinks Section</h2>
+        <h2 style="color: brown;"> Drinks Section</h2>
         <p> The list of drinks available are as below :</p>
-        <div>
+        <div style="padding: 1em; text-wrap-mode: nowrap;">
 
-            <div>
+            <div class="image-div">
                 <img style="height:100px;width:100px" src="images/coffee.jpg">
             </div>
-            <div>
+            <div class="table-div" style="margin: 0 3em;">
                 <table style:border=1>
                     <tr> 
                         <th> Name </th>
@@ -109,7 +148,7 @@
                     </tr>
                 </table>
             </div>
-            <div>
+            <div class="image-div">
                 <img style="height:100px;width:100px" src="images/coffee.jpg">
             </div>
         </div>

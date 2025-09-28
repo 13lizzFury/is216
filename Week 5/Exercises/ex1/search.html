@@ -11,10 +11,43 @@
 </head>
 <body>
     <!-- add code here-->
+     <div class="container align-items-center">
+        <div class="text-center">
+            Type a name in the input field below:
+            <br>
+            <br>
+            Name: <input id="name_field" type="text">
+            <br>
+            <span id="suggestions"></span>
+        </div>
+     </div>
 
     <script>
 
         // add code here
+        function getHint() {
+            query = this.value;
+            console.log("Query: " + query);
+
+            suggestions = document.getElementById("suggestions");
+
+            if (query != '') {
+                axios.get("getHint.php?query=" + query)
+                .then(result => {
+                    suggestions.textContent = result.data;
+                })
+                .catch(err => {
+                    suggestions.textContent = err.data;
+                });
+            }
+            else {
+                suggestions.textContent = "";
+            }
+        }
+
+        name_field = document.getElementById("name_field");
+        console.log(name_field);
+        name_field.addEventListener("keyup", getHint);
         
     </script>
 
