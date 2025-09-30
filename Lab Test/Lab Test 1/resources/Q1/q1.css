@@ -1,0 +1,80 @@
+/*
+  Name: Benjamin Ho
+  Email: benjamin.ho.2024
+*/
+body {
+    background-color: #ecf0f1;
+    font-size: 18px;
+}
+
+
+/* Part A */
+header {
+    padding: 5px;
+    background-color: #3498db;
+    color: #fff;
+}
+
+h1 {
+    font-size: 40px;
+    text-align: center;
+}
+
+#featured-review h2 {
+    text-align: center;
+    color: #3498db;
+}
+
+
+/* Part B */
+.book-review {
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
+    text-align: center;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 30px 0px;
+}
+
+.book-review img {
+    display: block;
+    margin: auto;
+    width: 200px;
+}
+
+#book-author {
+    font-style: italic;
+}
+
+
+/* Part C */
+.rating ul {
+    list-style-type: none;
+    display: inline;
+}
+
+.rating ul li {
+    padding: 20px 2px;
+    display: inline;
+    color: gold;
+}
+
+.rating span {
+    color: #ababab;
+    font-size: 20px;
+    padding: 5px;
+    display: inline;
+}
+
+
+/* Part D */
+footer {
+    color: #fff;
+    background-color: #2c3e50;
+}
+
+footer p {
+    width: fit-content;
+    display: block;
+    margin: auto;
+}

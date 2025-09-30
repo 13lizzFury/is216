@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trial LT1 - Q3 - Bulb</title>
+    <link rel="stylesheet" href="q3.css">
+</head>
+<body>
+    <div class="container">
+        <div id="colorBox">
+            <svg class="lightbulb" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+                <!-- Bulb -->
+                <ellipse id="bulb" class="bulb" cx="32" cy="18" rx="25" ry="30"/>
+                <!-- Base -->
+                <rect class="base" x="24" y="48" width="16" height="10"/>
+                <rect class="base" x="22" y="56" width="20" height="10"/>
+            </svg>
+            <button id="toggleButton" onclick="changeColor()">Toggle bulb</button>
+        </div>
+        <div id="textBox">
+            <h2>Logs</h2>
+            <ol id="logs">
+            </ol>
+            <button id="halveLogButton" onclick="halveLogs()">Clear half of logs</button>
+            <div id="errorMsg"></div>
+        </div>
+    </div>
+
+    <script src="q3.js"></script>
+</body>
+</html>

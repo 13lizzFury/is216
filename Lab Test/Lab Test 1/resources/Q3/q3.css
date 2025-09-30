@@ -1,0 +1,47 @@
+.container {
+    display: flex;
+    align-items: flex-start; 
+}
+#colorBox {
+    width: 200px;
+    height: 200px;
+    background-color: white;
+    transition: background-color 1s;
+    display: flex;
+    justify-content: center; 
+    align-items: center;    
+    flex-direction: column; 
+}
+#textBox {
+    margin-left: 20px; 
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    width: 200px;
+    border: 1px solid #ccc; 
+}
+#textBox h2 {
+    margin: 0; 
+}
+#errorMsg {
+    color:red;
+    font-style: italic;
+}
+
+.lightbulb {
+    width: 100px;
+    height: 150px;
+}
+
+.lightbulb .bulb {
+    fill: white;
+    stroke: black;
+    stroke-width: 2;
+    transition: fill 3s;
+}
+
+.lightbulb .base {
+    fill: gray;
+    stroke: black;
+    stroke-width: 2;
+}
