@@ -13,6 +13,18 @@
 
     <style>
         /* Add your CSS here */
+        #header {
+            background-image: url("images/fruit.jpg");
+        }
+
+        hr {
+            color: white;
+        }
+
+        footer {
+            background-color: grey;
+        }
+
     </style>
 
 </head>
@@ -20,59 +32,162 @@
 <body>
 
 
-    <h1> Welcome to Food Mart </h1>
+    <div class="container-fluid">
+        <div class="row border border-2 border-danger my-5 p-5 justify-content-center" id="header">
+            <div class="col-6 p-0 text-center">
+                <h1 class="h1 m-0 bg-white"> Welcome to Food Mart </h1>
+            </div>
+        </div>
+    </div>
 
+    <div class="bg-warning">
+        <div class="container">
+            <div class="row py-5 justify-content-center">
+                <div class="col-12 text-center">
+                    <h2 class="text-white">Cooked Food</h2>
+                    <h6 class="text-white">
+                        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolores perspiciatis labore illo
+                        pariatur qui, quod, consequuntur, perferendis iure explicabo et tenetur quae non inventore
+                        veritatis repellat eius laborum unde eaa
+                    </h6>
+                </div>
+                <hr class="my-3">
+                <div class="row">
+                    <div class="col-lg-4 col-md-6">
+                        <div class="card">
+                            <img class="card-img-top my-4 img-fluid" src="images/burger.jpg">
+                            <h5 class="card-title text-danger text-center mx-3">Burger</h5>
+                            <p class="card-subtitle text-primary text-center mx-3">Burger. Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                            <div class="card-body">
+                                <form>
+                                    <div class="row">
+                                        <div class="col-6">
+                                            <label class="form-label text-muted" for="portion">Portion</label>
+                                            <select class="form-control" name="portion" id="portion">
+                                                <option value="large" selected>Large</option>
+                                                <option value="medium">Medium</option>
+                                                <option value="small">Small</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-6">
+                                            <label class="form-label text-muted" for="quantity">Quantity</label>
+                                            <input class="form-control" type="number" name="quantity" id="quantity">
+                                        </div>
+                                        <div class="col-12 text-center">
+                                            <label class="form-label text-muted" for="takeaway">Take Away?</label>
+                                            <select class="form-control" name="takeaway" id="takeaway">
+                                                <option value="yes" selected>Yes</option>
+                                                <option value="no">No</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-12 mt-2 text-center">
+                                            <button class="btn btn-outline-primary" type="submit">Add</button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6">
+                        <div class="card">
+                            <img class="card-img-top my-4 img-fluid" src="images/chickenrice.jpg">
+                            <h5 class="card-title text-danger text-center mx-3">Chicken Rice</h5>
+                            <p class="card-subtitle text-primary text-center mx-3">Chicken Rice. Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                            <div class="card-body">
+                                <form>
+                                    <div class="row">
+                                        <div class="col-6">
+                                            <label class="form-label text-muted" for="portion">Portion</label>
+                                            <select class="form-control" name="portion" id="portion">
+                                                <option value="large" selected>Large</option>
+                                                <option value="medium">Medium</option>
+                                                <option value="small">Small</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-6">
+                                            <label class="form-label text-muted" for="quantity">Quantity</label>
+                                            <input class="form-control" type="number" name="quantity" id="quantity">
+                                        </div>
+                                        <div class="col-12 text-center">
+                                            <label class="form-label text-muted" for="takeaway">Take Away?</label>
+                                            <select class="form-control" name="takeaway" id="takeaway">
+                                                <option value="yes" selected>Yes</option>
+                                                <option value="no">No</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-12 mt-2 text-center">
+                                            <button class="btn btn-outline-primary" type="submit">Add</button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6">
+                        <div class="card">
+                            <img class="card-img-top my-4 img-fluid" src="images/noodle.jpg">
+                            <h5 class="card-title text-danger text-center mx-3">Noodle</h5>
+                            <p class="card-subtitle text-primary text-center mx-3">Noodle. Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                            <div class="card-body">
+                                <form>
+                                    <div class="row">
+                                        <div class="col-6">
+                                            <label class="form-label text-muted" for="portion">Portion</label>
+                                            <select class="form-control" name="portion" id="portion">
+                                                <option value="large" selected>Large</option>
+                                                <option value="medium">Medium</option>
+                                                <option value="small">Small</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-6">
+                                            <label class="form-label text-muted" for="quantity">Quantity</label>
+                                            <input class="form-control" type="number" name="quantity" id="quantity">
+                                        </div>
+                                        <div class="col-12 text-center">
+                                            <label class="form-label text-muted" for="takeaway">Take Away?</label>
+                                            <select class="form-control" name="takeaway" id="takeaway">
+                                                <option value="yes" selected>Yes</option>
+                                                <option value="no">No</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-12 mt-2 text-center">
+                                            <button class="btn btn-outline-primary" type="submit">Add</button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        
+                <div class="col-12 d-flex justify-content-center mt-3">
+                    <button class="btn btn-success w-auto fs-5">Check Out</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
+        <nav class="navbar navbar-expand">
+            <div class="container-fluid justify-content-center">
+                <ul class="navbar-nav list-unstyled p-2">
+                    <li class="nav-item mx-2">
+                        <a class="nav-link link-primary" href="foodmart.html#">Home</a>
+                    </li>
 
+                    <li class="nav-item mx-2">
+                        <a class="nav-link link-primary" href="foodmart.html#">FAQ</a>
+                    </li>
 
-    Cooked Food
+                    <li class="nav-item mx-2">
+                        <a class="nav-link link-primary" href="foodmart.html#">Contact Us</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
 
-    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolores perspiciatis labore illo
-    pariatur qui, quod, consequuntur, perferendis iure explicabo et tenetur quae non inventore
-    veritatis repellat eius laborum unde eaa
-
-    Burger
-    Burger. Lorem ipsum dolor sit amet consectetur adipisicing elit.
-    Portion
-    Large
-    Medium
-    Small
-    Quantity
-    Take Away?
-    Yes
-    No
-    <button>Add</button>
-    Chicken Rice
-    Chicken Rice. Lorem ipsum dolor sit amet consectetur adipisicing elit.
-    Portion
-    Large
-    Medium
-    Small
-    Quantity
-    Take Away?
-    Yes
-    No
-    <button>Add</button>
-    Noodle
-    Noodle. Lorem ipsum dolor sit amet consectetur adipisicing elit.
-    Portion
-    Large
-    Medium
-    Small
-    Quantity
-    Take Away?
-    Yes
-    No
-    <button>Add</button>
-
-    <button>Check Out</button>
-
-    Home
-    FAQ
-    Contact Us
-
-
-    Food Mart 2020
+        <footer class="row text-center p-2">
+            <h6 class="m-0">Food Mart 2020</h6>
+        </footer>
 
 
 
