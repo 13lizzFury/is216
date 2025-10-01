@@ -35,7 +35,40 @@
 
     <script>
         // YOUR CODE GOES HERE: START
+        function doClick() {
+            let radio_btns = document.getElementsByTagName("input"); 
 
+            let gender = "";
+            
+            for (option of radio_btns) {
+                console.log(option.checked);
+                if (option.checked) {
+                    gender = option.value;
+                }
+            }
+            
+            console.log(gender);
+            let msg = "";
+
+            if (gender == "") {
+                msg = "Please select a gender";
+            }
+            else {
+                msg = "You select " + gender;
+            }
+
+            console.log(msg);
+
+            document.getElementsByClassName("errors")[0].textContent = msg;
+            
+        }
+        var radio_btns = document.getElementsByTagName("button");
+        
+        for (btn of radio_btns) {
+            btn.addEventListener("click", function(event){event.preventDefault()});
+        }
+        
+        radio_btns[1].addEventListener("click", doClick);
 
         
 

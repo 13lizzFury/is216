@@ -3,18 +3,22 @@
 function getName() {
     
     // Add Code here
+    let input_name = name_fields[0].value + " " + name_fields[1].value;
+
     let name = document.getElementById("name");
 
-    let span = document.createElement("span");
+    console.log(input_name);
 
-    span.textContent = this.value;
-
-    name.appendChild(span);
+    if (input_name != " ") {
+        name.textContent = "You entered: " + input_name;
+    }
+    else {
+        name.textContent = "";
+    }
 }
 
 var name_fields = document.getElementsByTagName("input");
 
 for (field of name_fields) {
-    console.log(field);
     field.addEventListener("keyup", getName);
 };
