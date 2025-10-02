@@ -1,0 +1,51 @@
+/* part (a) */
+#header {
+	background-color: #151C55; /* 0.5 m */
+	color: white; /* 0.5 m */
+	padding: 10px 2px; /* 1 m */
+	border-radius: 10px;
+}
+
+/* part (b) */
+#header ul { /* 0.5 mark */
+	margin-left: 150px;	/* 0.5 mark */
+}
+
+#header ul li { 
+	display:inline; /* 1 mark */
+	font-family: sans-serif;	
+}
+
+#header ul li a {
+	text-decoration: none;
+	background-color:#708090;
+	padding: 10px 30px; /* 0.5 mark */
+	color: white; /* 0.5 mark */
+}
+
+
+
+#footer {
+	font-size:1em;
+	font-style:italic;
+}
+
+/* part (c) */
+table {
+	border-collapse: collapse; /* 0.5 mark */
+	margin-left: 20px; 
+}
+
+table tr th { /* 0.5 mark */
+	padding: 15px 10px; /* 0.5 mark */
+	text-align: left; /* 0.5 mark */
+}
+
+table tr td { 
+	padding: 10px; 
+}
+
+.free, span {	/* 0.5 mark */
+	background-color:green; /* 0.25 mark */
+	color: white; /* 0.25 mark */
+}

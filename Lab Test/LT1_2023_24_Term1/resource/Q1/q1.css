@@ -1,0 +1,70 @@
+/*
+	NAME: Benjamin Ho
+	EMAIL: benjamin.ho.2024
+*/
+#header {
+	/* part (a) */
+	
+	border-radius: 10px;
+	background-color: #151c55;
+	color: white;
+	padding: 10px 2px;
+}
+
+
+/* Part (b): Add a selector here so that the first menu item is 150 px from the left
+*/
+#header ul {
+	margin-left: 150px;
+}
+
+
+#header ul li { 
+	font-family: sans-serif;
+	background-color:#708090;
+	/* part (b) */
+	display: inline-block;
+	padding: 10px 30px;
+}
+
+#header ul li a {
+	text-decoration: none;
+	/* part (b) */
+	color: white;
+}
+
+
+	
+
+#footer {
+	font-size:1em;
+	font-style:italic;
+}
+
+table {
+	/* part (c) */
+	text-align: left;
+	border: 1px solid black;
+	border-collapse: collapse;
+	margin-left: 20px;
+}
+
+/* part (c): Add selectors to style table heading */
+table th {
+	padding: 15px 10px;
+	border: 1px solid black;
+	border-collapse: collapse;
+}
+
+
+table tr td { 
+	padding: 10px;
+	border: 1px solid black;
+	border-collapse: collapse;
+}
+
+/* part (c): Add 1 selector here to highlight table row in green (with white text) for events that are free and to do the same for text "free" in footnote */
+.free, #footer span {
+	background-color: green;
+	color: white;
+}

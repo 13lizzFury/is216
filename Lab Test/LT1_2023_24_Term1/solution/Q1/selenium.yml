@@ -1,0 +1,8 @@
+---
+execution:
+- executor: selenium
+  scenario: simple
+  concurrency: 20
+scenarios:
+  simple:
+	  script: test_web.py

@@ -1,0 +1,29 @@
+{
+    "books": [
+        {
+            "title": "The Casual Vacancy",
+            "author": "J.K. Rowling",
+            "sales": 0
+        },
+        {
+            "title": "Fantastic Beasts",
+            "author": "J.K. Rowling",
+            "sales": 0
+        },
+        {
+            "title": "The Great Gatsby",
+            "author": "F. Scott Fitzgerald",
+            "sales": 0
+        },
+        {
+            "title": "Angels & Demons",
+            "author": "Dan Brown",
+            "sales": 0
+        },
+        {
+            "title": "Hacking APIs",
+            "author": "Corey J. Ball",
+            "sales": 0
+        }
+    ]
+}

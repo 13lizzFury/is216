@@ -1,0 +1,29 @@
+{
+    "books": [
+        {
+            "title": "The Casual Vacancy",
+            "author": "J.K. Rowling",
+            "sales": 0
+        },
+        {
+            "title": "Fantastic Beasts",
+            "author": "J.K. Rowling",
+            "sales": 0
+        },
+        {
+            "title": "Pride and Prejudice",
+            "author": "Jane Austen",
+            "sales": 0
+        },
+        {
+            "title": "The Great Gatsby",
+            "author": "F. Scott Fitzgerald",
+            "sales": 0
+        },
+        {
+            "title": "Inferno",
+            "author": "Dan Brown",
+            "sales": 0
+        }
+    ]
+}

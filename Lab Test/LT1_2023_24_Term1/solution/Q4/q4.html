@@ -1,0 +1,136 @@
+<!-- DO NOT MODIFY THIS FILE -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Q4</title>
+
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://d3js.org/d3.v6.min.js"></script>
+    <script src="draw.js"></script>
+    <script src="q4.js"></script>
+
+
+    <style>
+        /* CSS styling for the chart */
+        .bar {
+          fill: steelblue;
+        }
+    </style>
+
+</head>
+
+<body onload="showSales()">
+
+    <table>
+        <tr>
+            <td> <svg id="sales1"></svg></td>
+            <td> <svg id="sales2"></svg></td>
+        </tr>
+        <tr>
+            <td> TC1a <br> <svg id="tc1a"></svg></td>
+            <td> TC1b <br> <svg id="tc1b"></svg></td>
+        </tr>
+        <tr>
+            <td> TC2a <br> <svg id="tc2a"></svg></td>
+            <td> TC2b <br>  <svg id="tc2b"></svg></td>
+        </tr>
+        <tr>
+            <td> TC3a <br> <svg id="tc3a"></svg></td>
+            <td> TC3b <br>  <svg id="tc3b"></svg></td>
+        </tr>
+        <tr>
+            <td> TC4a <br>  <svg id="tc4a"></svg></td>
+            <!-- <td> TC4b <br>  <svg id="tc4b"></svg></td> -->
+            <td></td>
+        </tr>
+    </table>
+
+    <script>
+        // DO NOT MODIFY THE FOLLOWING CODE
+        // var url1 = "sales1.json"
+        // var url2 = "sales2.json"
+       
+        function showSales() {
+            let url1 = "sales1.json"
+            let url2 = "sales2.json"
+            computeSales("#sales1", "Sales1", url1)
+            computeSales("#sales2", "Sales2", url2)
+
+            /*
+                TC1
+                Part A: Test mergeSales on merging more than 3 authors (1 mark)
+                Part B: Test SortSales on sorting more than 3 authors (1 mark)
+            */
+            url1 = "test/tc1/sales1.json"
+            url2 = "test/tc1/sales2.json"
+            mergeSales("#tc1a", "Merged Sales", url1, url2)
+            sortSales("#tc1b", "Sorted Sales", url1, url2)
+
+            /*
+                TC2
+                Part A: Test mergeSales on the corner case of all zero sales (1 mark)
+                Part B: Test SortSales on the corner case of all zero sales (1 mark)
+            */
+            url1 = "test/tc2/sales1.json"
+            url2 = "test/tc2/sales2.json"
+            mergeSales("#tc2a", "Merged Sales", url1, url2)
+            sortSales("#tc2b", "Sorted Sales", url1, url2)
+
+            /*
+                TC3
+                Part A: Test mergeSales on the case where there are two authors with same #sales and two authors with < 5 sales (1 mark)
+                Part B: Test sortSales on the case where there are two authors with same #sales and two authors with < 5 sales (1 mark)
+               
+            */
+            url1 = "test/tc3/sales1.json"
+            url2 = "test/tc3/sales2.json"
+            mergeSales("#tc3a", "Merged Sales", url1, url2)
+            sortSales("#tc3b", "Sorted Sales", url1, url2)
+
+            /*
+                TC4
+                Part A: Test mergeSales on the case where there is only one author (1 mark)
+            */
+            url1 = "test/tc4/sales1.json"
+            url2 = "test/tc4/sales2.json"
+            mergeSales("#tc4a", "Merged Sales", url1, url2)
+            // sortSales("#tc4b", "Sorted Sales", url1, url2) 
+        }
+
+
+
+        function computeSales(elem, title, url) {
+            var data = [] // data to display
+            
+            axios
+            .get(url)
+            .then((response) => {
+                // retrieve sales from sales
+                let sales = response.data;
+                console.log(sales)
+
+                let authorSales = {} 
+            
+                for(let item of sales.books) {  
+                    if(item.author in  authorSales) { 
+                        authorSales[item.author] += item.sales 
+                    } else {
+                        authorSales[item.author] = item.sales
+                    }
+                }
+
+                for(let author in authorSales) {
+                    let x = { "author": author, "sales": authorSales[author] }
+                    data.push(x)
+                }
+
+                display(elem, data, title)
+                
+            })
+        }
+    </script>
+   
+</body>
+</html>
