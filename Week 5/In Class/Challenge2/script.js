@@ -40,6 +40,31 @@ function populate_cards(profile_array) {
 
     // YOUR CODE GOES HERE
 
+    for (profile of profile_array) {
+
+        let hover_color = "";
+
+        if (profile.gender == "M") {
+            hover_color = "blue"; 
+        }
+        else {
+            hover_color = "pink";
+        }
+
+        result_str += `
+            <div class="col">
+                <div class="card h-100 ${hover_color} position-relative">
+                    <span class="age-pill badge rounded-pill bg-warning text-black position-absolute top-0 end-0 m-2">${profile.age}</span>
+                    <img src="${profile["photo_url"]}" class="card-img-top">
+                    <div class="card-body">
+                        <h5 class="card-title">${profile.name}</h5>
+                        <h6><span class="badge text-bg-info">${profile.occupation}</span></h6>
+                        <p class="card-text fst-italic">${profile.quote}</p>
+                    </div>
+                </div>
+            </div>
+        `;
+    }
 
     // DO NOT MODIFY THIS LINE (USE THIS AS IS)
     document.getElementById('my-cards').innerHTML = result_str;
@@ -63,7 +88,21 @@ function get_by_gender(gender) {
     //============================================================================
 
     // YOUR CODE GOES HERE
+    let api_endpoint = 'http://localhost/krazydating/api/profile/search.php';
 
+    axios.get(
+        api_endpoint, {
+           params: {
+                g : gender
+           } 
+        })
+    .then((result) => {
+        populate_cards(result.data.records)
+    }).catch((err) => {
+        console.log(err.message);
+    });
 
     console.log("**** [END] get_by_gender() *****");
 }
+
+window.onload = get_all();

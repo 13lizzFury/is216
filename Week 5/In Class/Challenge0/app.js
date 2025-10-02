@@ -112,35 +112,30 @@ function populate_category_dropdown() {
 
 
 /* Task 8 - Category Dropdown Event Listener */
-
-category_form = document.getElementById("category");
-
-for (category_obj of category_form) {
-    category_obj.addEventListener("click", get_filtered_drinks("c", category_obj.value));
-}
-
-
-function get_filtered_drinks(filter_type, filter_value) {
-    api_endpoint_url = "http://localhost/is216/Week%205/In%20Class/DrinksAPI/api/drink/search.php?";
-
-    
-    if (filter_value == "") {
-        apapi_endpoint_url += selected_filters[filter] + "&";
+function get_filtered_drinks() {
+    if (this.id == "category") {
+        filters["c"] = this.value;
+    }
+    else if (this.id == "alcoholic") {
+        filters["a"] = this.value;
+    }
+    else if (this.id == "name_search") {
+        filters["n"] = this.value;
     }
 
-    console.log(api_endpoint_url);
+    let results = document.getElementById('results');
 
-    axios.get(api_endpoint_url).
-    then(response => {
-        console.log("Axios call completed successfully!");
-        
-        let section_results = document.getElementById('results');
+    axios.get(
+        "http://localhost/is216/Week%205/In%20Class/DrinksAPI/api/drink/search.php", {
+        params: filters
+    })
+    .then((result) => {
+        let drinks_array = result.data.records;
+        console.log(drinks_array);
 
         let result_str = ``;
-        let drinks_array = response.data.records;
 
-        for (let drink of drinks_array) {
-
+        for (drink of drinks_array) {
             drink_photo_url = "http://localhost/is216/Week 5/In Class/DrinksAPI/" + drink.photo_url;
 
             result_str += `
@@ -162,29 +157,36 @@ function get_filtered_drinks(filter_type, filter_value) {
             `;
         }
 
-        section_results.innerHTML = result_str;
-    }).
-    catch(error => {
-        console.log(error.message);
+        results.innerHTML = result_str;
+    })
+    .catch((err) => {
+        console.log(err.message);
 
-        const error_alert = document.createElement("div");
-        error_alert.setAttribute("class", "alert alert-danger");
+        let error_alert = document.createElement("div");
+        error_alert.className = "alert alert-danger";
+        error_alert.textContent = "Failed to load drinks data.";
 
-        const error_message = document.createTextNode("Failed to load drinks data.");
-
-        error_alert.appendChild(error_message);
-        document.getElementById("results").replaceWith(error_alert);
-
-        console.log(error_alert);
-
+        results.replaceWith(error_alert);
     });
 }
 
+
+filters = {
+    "c":"",
+    "a":"",
+    "n":""
+};
+
+category_form = document.getElementById("category");
+category_form.addEventListener("change", get_filtered_drinks);
+
 /* Task 9 - Alcoholic Dropdown Event Listener */
 
-
+document.getElementById("alcoholic").addEventListener("change", get_filtered_drinks);
 
 /* Task 10 - Name search input Event Listener */
+
+document.getElementById("name_search").addEventListener("keyup", get_filtered_drinks)
 
 // DO NOT MODIFY THE BELOW LINES
 get_all_drinks();

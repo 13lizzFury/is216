@@ -25,14 +25,14 @@ function check_weather() {
     // Task 1
     // Key in your own OpenWeatherMap.org API key (DO NOT SHARE IT WITH OTHERS)
     //============================================================================
-    const weather_api_key = '';
+    const weather_api_key = '9f71718423540fce78faf2cb8248de9c';
 
 
     //============================================================================
     // Task 2
     // Retrieve the user input (city name) from <input>
     //============================================================================
-    const city = 'Moscow'; // Default value, you need to replace this string with actual user input
+    const city = document.getElementById("city").value; // Default value, you need to replace this string with actual user input
 
 
     // DO NOT MODIFY THIS
@@ -43,7 +43,7 @@ function check_weather() {
     .then(response => {
         // Inspect what's in the API response
         console.log(response.data);
-
+        
 
         //============================================================================
         // Task 3
@@ -53,6 +53,11 @@ function check_weather() {
         // YOUR CODE GOES HERE
         // Make use of const weather_type_images (at the top)
 
+        let weather_obj = response.data;
+        let weather_array = weather_obj.weather;
+        let temp = weather_obj.main["temp"];
+
+        console.log(weather_array);
 
         //======================================================================================
         // Task 4
@@ -61,6 +66,25 @@ function check_weather() {
 
         // YOUR CODE GOES HERE
         // Make use of const temp_images (at the top)
+
+        document.getElementById("weather_images").textContent = "";
+
+        for (weather of weather_array) {
+            let weather_img = document.createElement("img");
+            weather_img.src = weather_type_images[weather["main"]];
+
+            document.getElementById("weather_images").appendChild(weather_img);
+        }
+
+        if (temp > 25) {
+            document.getElementById("temperature_image").src = temp_images["Hot"];
+        }
+        else if (5 <= temp < 25) {
+            document.getElementById("temperature_image").src = temp_images["Okay"];
+        }
+        else {
+            document.getElementById("temperature_image").src = temp_images["Cold"];
+        }
         
     })
     .catch(error => {

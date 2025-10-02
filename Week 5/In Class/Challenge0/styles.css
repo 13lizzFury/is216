@@ -20,4 +20,11 @@ nav {
 
 
 /* Task 11 - IMH Hotline */
-
+#imh-hotline {
+  background-color: gold;
+  text-align: center;
+  padding: 1em 0 1em 0;
+  position: fixed;
+  bottom: 0;
+  width: 100vw;
+}

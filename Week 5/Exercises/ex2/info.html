@@ -13,7 +13,7 @@
     <div class="jumbotron">
         <h2>Choose an option:</h2>
         <label for="limit">Limit:</label>
-        <input id="limit" type="number" min=1 max=5 value=1>
+        <input id="limit" type="number" min=1 max=5 value=1 onchange="getData()">
         <select onchange="getData()">
             <option value="customers">Customers</option>
             <option value="products">Products</option>
