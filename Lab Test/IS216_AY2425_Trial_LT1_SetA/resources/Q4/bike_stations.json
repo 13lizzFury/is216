@@ -2,14 +2,14 @@
     {
         "id": 1,
         "name": "Central Park Station",
-        "available_bikes": 11,
-        "available_docks": 4
+        "available_bikes": 7,
+        "available_docks": 8
     },
     {
         "id": 2,
         "name": "Downtown Plaza Station",
-        "available_bikes": 5,
-        "available_docks": 10
+        "available_bikes": 3,
+        "available_docks": 12
     },
     {
         "id": 3,

@@ -1,0 +1,27 @@
+/*
+.box {
+	width: 300px;
+	height: 180px;
+	border: 2px dotted black;	
+}
+*/
+
+/* Q2 solution 
+Notes: slight variations are OK. For example, students won't be penalized if they used white for the background-color, or a different % for border-radius
+*/
+.box {
+	width: 300px;
+	height: 180px;
+	border: 2px solid red;
+	background-color: lightyellow;	
+    border-radius: 5%;
+	padding: 20px;
+	margin: 10px;
+	text-align: center;
+}
+
+
+h4{
+	font-style: italic;
+	text-align: right;
+}
